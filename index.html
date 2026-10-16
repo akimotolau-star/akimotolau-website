@@ -1,0 +1,2067 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>讓 AI 與數據，成為每個人的超能力 ｜ AI 解決方案與工程整合顧問</title>
+  <meta name="description" content="結合 AI、資料分析、智慧化流程與工程整合能力，協助組織釐清複雜問題、優化作業流程，將新技術轉化為切實現場合理的解決方案。">
+  <meta name="author" content="AI & Engineering Solutions Consultant">
+
+  <!-- Google Fonts: Inter & Noto Sans TC -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              blue: '#2563EB',      // 科技藍 Primary
+              indigo: '#3B82F6',    // 科技藍（中）
+              purple: '#60A5FA',    // 科技藍（淺）
+              mint: '#10B981',      // 薄荷綠 Accent / Success
+              indigo: '#3B82F6',    // 科技藍（中）
+              purple: '#60A5FA',    // 科技藍（淺）
+              dark: '#1E293B',      // 深色文字
+              muted: '#64748B',     // Slate 500
+              border: '#CBD5E1',    // 邊框／分隔線
+              surface: '#F1F5F9',   // 薄霧灰背景
+              lightBlue: '#DBEAFE', // 淺科技藍
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans TC', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.07)',
+            'glow-blue': '0 0 25px -5px rgba(37, 99, 235, 0.25)',
+            'glow-mint': '0 0 20px -3px rgba(16, 185, 129, 0.2)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    /* 基礎平滑與無障礙 */
+    @media (prefers-reduced-motion: reduce) {
+      *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* 高級毛玻璃效果 */
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+    }
+    
+    .glass-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .glass-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(99, 102, 241, 0.4);
+      box-shadow: 0 16px 36px -10px rgba(37, 99, 235, 0.12), 0 0 0 1px rgba(99, 102, 241, 0.15);
+    }
+
+    /* 漸層文字效果 */
+    .text-gradient {
+      background: linear-gradient(135deg, #2563EB 0%, #3B82F6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* 打字機閃爍游標 */
+    .typewriter-cursor {
+      display: inline-block;
+      width: 3px;
+      height: 1.1em;
+      vertical-align: -0.15em;
+      background-color: #2563EB;
+      margin-left: 4px;
+      animation: blink 0.9s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* 科技背景網格微底紋 */
+    .tech-grid-pattern {
+      background-size: 36px 36px;
+      background-image: 
+        linear-gradient(to right, rgba(226, 232, 240, 0.4) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(226, 232, 240, 0.4) 1px, transparent 1px);
+    }
+
+    /* 捲動時浮現動畫輔助類別 */
+    .fade-up-element {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .fade-up-element.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ITRI 品牌色票：統一既有 Tailwind Slate／Blue 輔助色 */
+    .border-slate-200, .border-slate-200\/80 { border-color: #CBD5E1 !important; }
+    .bg-slate-50, .bg-blue-50 { background-color: #F1F5F9 !important; }
+    .bg-blue-100 { background-color: #DBEAFE !important; }
+    .text-slate-800, .text-slate-900 { color: #1E293B !important; }
+    .text-slate-600, .text-slate-500 { color: #64748B !important; }
+    .text-purple-800, .text-purple-700 { color: #2563EB !important; }
+    .bg-purple-100, .bg-purple-50 { background-color: #DBEAFE !important; }
+    .text-emerald-600, .text-emerald-700 { color: #10B981 !important; }
+    .bg-emerald-50, .bg-emerald-100 { background-color: #D1FAE5 !important; }
+  </style>
+</head>
+<body class="bg-white text-brand-dark font-sans antialiased selection:bg-brand-blue selection:text-white relative overflow-x-hidden">
+
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 bg-brand-blue text-white px-4 py-2 rounded-lg font-medium shadow-lg">
+    跳至主要內容區塊
+  </a>
+
+  <header id="site-header" class="fixed top-0 left-0 w-full z-40 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="flex items-center justify-between h-20 transition-all duration-300" id="nav-container" aria-label="主要導覽">
+        
+        <!-- Brand Logo & Positioning Tag -->
+        <a href="#hero" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-brand-blue rounded-lg p-1">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-blue to-brand-purple flex items-center justify-center text-white shadow-md shadow-brand-blue/20 group-hover:scale-105 transition-transform duration-200">
+            <i data-lucide="cpu" class="w-5 h-5"></i>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-bold text-lg tracking-tight text-brand-dark group-hover:text-brand-blue transition-colors" id="nav-brand-name">
+              AI 解決方案與工程整合
+            </span>
+            <span class="text-xs text-brand-muted font-medium flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-brand-mint inline-block animate-pulse"></span>
+              實務顧問 ‧ 智慧化流程 ‧ GIS
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden lg:flex items-center gap-1 xl:gap-2">
+          <a href="#about" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-brand-dark/80 hover:text-brand-blue hover:bg-brand-surface transition-all focus:outline-none focus:ring-2 focus:ring-brand-blue">關於我</a>
+          <a href="#services" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-brand-dark/80 hover:text-brand-blue hover:bg-brand-surface transition-all focus:outline-none focus:ring-2 focus:ring-brand-blue">核心服務</a>
+          <a href="#portfolio" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-brand-dark/80 hover:text-brand-blue hover:bg-brand-surface transition-all focus:outline-none focus:ring-2 focus:ring-brand-blue">實務案例</a>
+          <a href="#methodology" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-brand-dark/80 hover:text-brand-blue hover:bg-brand-surface transition-all focus:outline-none focus:ring-2 focus:ring-brand-blue">工作方法</a>
+          <a href="#insights" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-brand-dark/80 hover:text-brand-blue hover:bg-brand-surface transition-all focus:outline-none focus:ring-2 focus:ring-brand-blue">技術觀點</a>
+          <a href="#contact" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-brand-dark/80 hover:text-brand-blue hover:bg-brand-surface transition-all focus:outline-none focus:ring-2 focus:ring-brand-blue">預約諮詢</a>
+        </div>
+
+        <!-- Desktop CTA Action -->
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="https://calendar.app.google/GhRzEzZ2mnW4hgZZ7" target="_blank" rel="noopener noreferrer" 
+             class="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-brand-border text-brand-dark text-sm font-semibold shadow-sm hover:border-brand-purple hover:shadow-glow-blue hover:text-brand-blue transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-blue">
+            <span class="w-2 h-2 rounded-full bg-brand-mint"></span>
+            <span>預約諮詢</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4 text-brand-muted group-hover:text-brand-blue group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+            
+            <!-- Hover status micro badge -->
+            <span class="absolute -bottom-7 right-0 opacity-0 group-hover:opacity-100 transition-opacity text-[11px] bg-brand-dark text-white px-2 py-0.5 rounded shadow pointer-events-none whitespace-nowrap">
+              Status: Ready to Connect
+            </span>
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <div class="flex items-center lg:hidden">
+          <button id="mobile-menu-btn" type="button" 
+                  class="p-2.5 rounded-xl border border-brand-border text-brand-dark hover:bg-brand-surface focus:outline-none focus:ring-2 focus:ring-brand-blue"
+                  aria-expanded="false" aria-controls="mobile-menu" aria-label="展開導覽選單">
+            <i data-lucide="menu" id="menu-icon-open" class="w-6 h-6"></i>
+            <i data-lucide="x" id="menu-icon-close" class="w-6 h-6 hidden"></i>
+          </button>
+        </div>
+
+      </nav>
+    </div>
+
+    <div id="mobile-menu" class="hidden lg:hidden border-b border-brand-border bg-white/95 backdrop-blur-xl px-4 pt-3 pb-6 space-y-2 shadow-xl animate-fadeIn">
+      <a href="#about" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-brand-dark hover:bg-brand-lightBlue hover:text-brand-blue">關於我</a>
+      <a href="#services" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-brand-dark hover:bg-brand-lightBlue hover:text-brand-blue">核心服務</a>
+      <a href="#portfolio" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-brand-dark hover:bg-brand-lightBlue hover:text-brand-blue">實務案例</a>
+      <a href="#methodology" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-brand-dark hover:bg-brand-lightBlue hover:text-brand-blue">工作方法</a>
+      <a href="#insights" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-brand-dark hover:bg-brand-lightBlue hover:text-brand-blue">技術觀點</a>
+      <a href="#contact" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-brand-dark hover:bg-brand-lightBlue hover:text-brand-blue">預約諮詢</a>
+      <div class="pt-2">
+        <a href="https://calendar.app.google/GhRzEzZ2mnW4hgZZ7" target="_blank" rel="noopener noreferrer" 
+           class="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple text-white font-medium shadow-md">
+          <i data-lucide="calendar" class="w-4 h-4"></i>
+          <span>直接預約 Google 諮詢</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section id="hero" class="relative min-h-[92vh] flex items-center pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden tech-grid-pattern">
+      <!-- Light decorative gradient glow -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[450px] bg-gradient-to-tr from-brand-blue/10 via-brand-purple/10 to-brand-mint/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
+      
+      <!-- Interactive Dynamic Canvas for subtle AI/Data nodes -->
+      <canvas id="hero-canvas" class="absolute inset-0 w-full h-full pointer-events-none opacity-60 -z-10" aria-hidden="true"></canvas>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div class="max-w-4xl mx-auto text-center lg:text-left lg:max-w-none lg:grid lg:grid-cols-12 lg:gap-12 lg:items-center">
+          
+          <!-- Hero Text Content -->
+          <div class="lg:col-span-7 space-y-6">
+            
+            <!-- Availability Pill -->
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-lightBlue/80 border border-blue-200/60 text-xs sm:text-sm font-medium text-brand-blue">
+              <span class="w-2 h-2 rounded-full bg-brand-mint animate-pulse"></span>
+              <span>AI 應用 ‧ 系統需求分析 ‧ 現場工程整合</span>
+              <span class="text-slate-400">|</span>
+              <span class="text-slate-600 font-normal">開放專案諮詢</span>
+            </div>
+
+            <!-- Dynamic Typing Main Headline -->
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-extrabold text-brand-dark tracking-tight leading-[1.2] min-h-[2.4em] sm:min-h-[2.2em] flex flex-wrap items-center justify-center lg:justify-start">
+              <span id="typewriter-text" class="text-gradient">讓 AI 與數據，成為每個人的超能力。</span>
+              <span class="typewriter-cursor" id="typewriter-cursor" aria-hidden="true"></span>
+              <!-- Fallback for accessibility & no-js -->
+              <noscript>讓 AI 與數據，成為每個人的超能力。</noscript>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="text-base sm:text-lg md:text-xl text-brand-muted leading-relaxed font-normal max-w-2xl mx-auto lg:mx-0">
+              從複雜問題到智慧解決方案，整合 AI、資料分析與工程思維，讓技術真正走進工作現場，創造可執行、可衡量的價值。
+            </p>
+
+            <!-- Positioning Tags -->
+            <div class="flex flex-wrap gap-2 justify-center lg:justify-start pt-2">
+              <span class="px-3 py-1 rounded-md bg-white border border-brand-border text-xs font-semibold text-slate-700 shadow-sm">AI Solutions</span>
+              <span class="px-3 py-1 rounded-md bg-white border border-brand-border text-xs font-semibold text-slate-700 shadow-sm">Data Intelligence</span>
+              <span class="px-3 py-1 rounded-md bg-white border border-brand-border text-xs font-semibold text-slate-700 shadow-sm">Workflow Design</span>
+              <span class="px-3 py-1 rounded-md bg-white border border-brand-border text-xs font-semibold text-slate-700 shadow-sm">GIS Spatial Systems</span>
+            </div>
+
+            <!-- Call to Actions -->
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+              <a href="https://calendar.app.google/GhRzEzZ2mnW4hgZZ7" target="_blank" rel="noopener noreferrer"
+                 class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple text-white font-semibold text-base shadow-lg shadow-brand-blue/25 hover:shadow-glow-blue hover:opacity-95 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue">
+                <i data-lucide="calendar-check" class="w-5 h-5"></i>
+                <span>預約專業諮詢</span>
+              </a>
+
+              <a href="#services" 
+                 class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-white border border-brand-border text-brand-dark font-semibold text-base shadow-sm hover:bg-brand-surface hover:border-slate-400 transition-all flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-brand-blue">
+                <span>探索解決方案</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-brand-muted"></i>
+              </a>
+
+              <a href="#methodology" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-purple underline-offset-4 hover:underline transition-colors mt-2 sm:mt-0 sm:ml-2">
+                <span>看看我如何解決問題</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+
+          </div>
+
+          <div class="hidden lg:block lg:col-span-5 mt-10 lg:mt-0">
+            <div class="relative mx-auto max-w-md">
+              <!-- Background card glow -->
+              <div class="absolute -inset-1 bg-gradient-to-r from-brand-blue/30 to-brand-purple/30 rounded-2xl blur-xl opacity-75"></div>
+              
+              <!-- Clean Futurism Glass Card -->
+              <div class="relative glass-card rounded-2xl p-6 sm:p-7 shadow-2xl border border-white/80 space-y-5">
+                <div class="flex items-center justify-between border-b border-brand-border pb-4">
+                  <div class="flex items-center gap-2.5">
+                    <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                    <div class="w-3 h-3 rounded-full bg-amber-400"></div>
+                    <div class="w-3 h-3 rounded-full bg-brand-mint"></div>
+                    <span class="text-xs font-mono text-slate-500 ml-1">SYSTEM_ARCHITECTURE.flow</span>
+                  </div>
+                  <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-emerald-50 text-emerald-600 font-semibold border border-emerald-200">ACTIVE</span>
+                </div>
+
+                <!-- Simulation Graph Nodes -->
+                <div class="space-y-3 font-mono text-xs">
+                  <div class="p-3 rounded-xl bg-white/90 border border-slate-200/80 shadow-sm flex items-center justify-between">
+                    <div class="flex items-center gap-2.5">
+                      <div class="p-1.5 rounded-lg bg-blue-50 text-brand-blue"><i data-lucide="layers" class="w-4 h-4"></i></div>
+                      <div>
+                        <div class="font-bold text-slate-800">01. 現場需求與零散資訊</div>
+                        <div class="text-[11px] text-slate-500 font-sans">管線安全 / 工業設施 / 業務流程</div>
+                      </div>
+                    </div>
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-mint"></i>
+                  </div>
+
+                  <div class="flex justify-center my-0.5">
+                    <i data-lucide="arrow-down" class="w-4 h-4 text-brand-blue animate-bounce"></i>
+                  </div>
+
+                  <div class="p-3 rounded-xl bg-gradient-to-r from-blue-50/80 to-purple-50/80 border border-blue-200 shadow-sm flex items-center justify-between">
+                    <div class="flex items-center gap-2.5">
+                      <div class="p-1.5 rounded-lg bg-purple-100 text-brand-purple"><i data-lucide="sparkles" class="w-4 h-4"></i></div>
+                      <div>
+                        <div class="font-bold text-slate-800">02. AI 知識庫檢索與 GIS 整合</div>
+                        <div class="text-[11px] text-slate-500 font-sans">RAG 向量問答 + 空間資料圖層分析</div>
+                      </div>
+                    </div>
+                    <span class="text-[10px] bg-purple-200 text-purple-800 font-bold px-1.5 py-0.5 rounded">RAG + GIS</span>
+                  </div>
+
+                  <div class="flex justify-center my-0.5">
+                    <i data-lucide="arrow-down" class="w-4 h-4 text-brand-purple"></i>
+                  </div>
+
+                  <div class="p-3 rounded-xl bg-white/90 border border-slate-200/80 shadow-sm flex items-center justify-between">
+                    <div class="flex items-center gap-2.5">
+                      <div class="p-1.5 rounded-lg bg-emerald-50 text-brand-mint"><i data-lucide="gauge" class="w-4 h-4"></i></div>
+                      <div>
+                        <div class="font-bold text-slate-800">03. 可落地的決策輔助與自動化</div>
+                        <div class="text-[11px] text-slate-500 font-sans">標準化 SOP / 降低誤判 / 永續維運</div>
+                      </div>
+                    </div>
+                    <span class="text-xs font-bold text-brand-mint">READY</span>
+                  </div>
+                </div>
+
+                <div class="pt-3 border-t border-brand-border flex items-center justify-between text-xs text-brand-muted">
+                  <span>執行準則：問題為本 ‧ 技術為用</span>
+                  <span class="flex items-center gap-1 font-mono text-brand-blue font-semibold">
+                    <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> 實務驗證導向
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="py-20 lg:py-28 bg-brand-surface relative border-t border-brand-border/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="max-w-3xl mx-auto text-center mb-16 fade-up-element">
+          <span class="text-xs font-bold tracking-widest text-brand-blue uppercase bg-blue-100/60 px-3 py-1 rounded-full">About Me</span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-dark mt-3 tracking-tight">
+            不只是理解技術，更重視如何解決問題。
+          </h2>
+          <div class="w-12 h-1 bg-gradient-to-r from-brand-blue to-brand-purple mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <!-- 3 Pillars Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          
+          <!-- Pillar 1 -->
+          <div class="glass-card rounded-2xl p-7 bg-white fade-up-element">
+            <div class="w-12 h-12 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center mb-5 font-mono font-bold text-lg border border-blue-100">
+              01
+            </div>
+            <h3 class="text-xl font-bold text-brand-dark mb-2.5">問題拆解與需求分析</h3>
+            <p class="text-brand-muted text-sm leading-relaxed">
+              跳過炫技式的工具堆疊，先深入現場訪談、梳理組織痛點與業務脈絡，將模糊的需求釐清為具體、可排定優先順序的規格與邏輯。
+            </p>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="glass-card rounded-2xl p-7 bg-white fade-up-element">
+            <div class="w-12 h-12 rounded-xl bg-purple-50 text-brand-purple flex items-center justify-center mb-5 font-mono font-bold text-lg border border-purple-100">
+              02
+            </div>
+            <h3 class="text-xl font-bold text-brand-dark mb-2.5">資料整合與系統思維</h3>
+            <p class="text-brand-muted text-sm leading-relaxed">
+              將孤島化的紙本紀錄、GIS 空間圖資、非結構化文件與工程數據清洗並標準化，透過系統化架構串接知識管理與決策分析。
+            </p>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="glass-card rounded-2xl p-7 bg-white fade-up-element">
+            <div class="w-12 h-12 rounded-xl bg-emerald-50 text-brand-mint flex items-center justify-center mb-5 font-mono font-bold text-lg border border-emerald-100">
+              03
+            </div>
+            <h3 class="text-xl font-bold text-brand-dark mb-2.5">技術應用與方案落地</h3>
+            <p class="text-brand-muted text-sm leading-relaxed">
+              探索生成式 AI (RAG)、智慧化自動工作流與地理資訊技術，考量成本與組織能力，提出可在日常業務中穩定運作的解決方案。
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Bio Narrative & Career Timeline -->
+        <div class="bg-white rounded-2xl border border-brand-border p-8 lg:p-12 shadow-sm fade-up-element">
+          <div class="lg:grid lg:grid-cols-12 lg:gap-12 items-start">
+            
+            <!-- Bio text (First Person) -->
+            <div class="lg:col-span-7 space-y-4 text-slate-700 leading-relaxed text-base">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="text-lg font-bold text-brand-dark">專業簡介</span>
+                <span class="text-xs px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 font-mono">實務工作者視角</span>
+              </div>
+              <p>
+                我從事專案執行、需求分析、系統規劃與跨領域技術整合相關工作。目前參與高雄市經發局管線安全辦公室執行計畫，任職關係為東慧國際諮詢顧問股份有限公司。
+              </p>
+              <p>
+                我的工作核心範疇涉及工業管線防災教育資訊整合、數位化學習規劃、系統功能規劃、資料清理與管理、GIS 地理資訊空間應用，以及 AI 輔助知識服務等實務領域。
+              </p>
+              <p class="font-medium text-slate-800 border-l-4 border-brand-blue pl-4 py-1 bg-blue-50/40 rounded-r-lg">
+                「我最關注的核心課題是：如何將分散的資訊、複雜的作業流程及專業知識，整理成容易理解、能有效執行，並能持續改善的實務解決方案。」
+              </p>
+              <p class="text-sm text-brand-muted">
+                我不斷探索 AI、數據分析與工程實務的最佳結合方式，堅持新技術絕不能只停留在簡報展示，而必須真切協助前線工作者降低負擔、提升決策品質。
+              </p>
+
+              <!-- Skills tags -->
+              <div class="pt-3">
+                <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">專業能力涵蓋</div>
+                <div class="flex flex-wrap gap-2 text-xs">
+                  <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 font-medium">系統需求分析 (BRD/SRS)</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 font-medium">流程邏輯架構 (Workflow)</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 font-medium">GIS 空間圖資分析 (QGIS)</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 font-medium">LLM / RAG 知識管理規劃</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 font-medium">跨部門技術協調與媒合</span>
+                  <span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 font-medium">公私協同專案推進</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Career Experience Timeline -->
+            <div class="lg:col-span-5 mt-8 lg:mt-0 border-t lg:border-t-0 lg:border-l border-brand-border pt-6 lg:pt-0 lg:pl-8">
+              <h4 class="text-sm font-bold text-brand-dark uppercase tracking-wider mb-5 flex items-center gap-2">
+                <i data-lucide="milestone" class="w-4 h-4 text-brand-blue"></i>
+                專案經驗與實務歷程
+              </h4>
+              
+              <div class="relative pl-6 space-y-6 before:content-[''] before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-brand-border">
+                
+                <!-- Timeline item 1 -->
+                <div class="relative">
+                  <div class="absolute -left-[27px] top-1.5 w-3 h-3 rounded-full bg-brand-blue ring-4 ring-white"></div>
+                  <div class="text-xs font-mono text-brand-blue font-semibold">現在進行式 ‧ 實務專案執行</div>
+                  <div class="text-sm font-bold text-brand-dark mt-0.5">管線安全辦公室執行計畫 ‧ 專案執行與技術整合</div>
+                  <div class="text-xs text-brand-muted mt-1 leading-relaxed">
+                    負責工業管線防災教育資訊、數位學習機制、GIS 圖資整合與 AI 輔助資訊規劃（東慧國際諮詢顧問股份有限公司）。
+                  </div>
+                </div>
+
+                <!-- Timeline item 2 -->
+                <div class="relative">
+                  <div class="absolute -left-[27px] top-1.5 w-3 h-3 rounded-full bg-slate-300 ring-4 ring-white"></div>
+                  <div class="text-xs font-mono text-slate-500 font-semibold">技術整合與研究實踐</div>
+                  <div class="text-sm font-bold text-brand-dark mt-0.5">AI 知識管理與智慧化流程架構探索</div>
+                  <div class="text-xs text-brand-muted mt-1 leading-relaxed">
+                    探討利用 LLM 與 RAG 技術將法規、歷史檢測圖資與維運文件轉化為可互動之智能問答系統原型。
+                  </div>
+                </div>
+
+                <!-- Timeline item 3 -->
+                <div class="relative">
+                  <div class="absolute -left-[27px] top-1.5 w-3 h-3 rounded-full bg-slate-300 ring-4 ring-white"></div>
+                  <div class="text-xs font-mono text-slate-500 font-semibold">工程與空間資訊整合</div>
+                  <div class="text-sm font-bold text-brand-dark mt-0.5">工程技術媒合、資源整合與空間決策輔助</div>
+                  <div class="text-xs text-brand-muted mt-1 leading-relaxed">
+                    結合設備規格比對、工項邏輯拆解與空間地圖分析，協助建立跨部門共同語言。
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Transparency Note -->
+              <div class="mt-6 p-3 rounded-xl bg-slate-50 border border-slate-200/80 text-[11px] text-slate-500 leading-normal">
+                <i data-lucide="info" class="w-3.5 h-3.5 inline text-slate-400 mr-1"></i>
+                聲明：本網站為個人專業作品與顧問能力展示，所列公部門專案為個人參與之實務工作歷程，非代表政府機關官方網站或官方背書。
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="services" class="py-20 lg:py-28 bg-white relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mx-auto text-center mb-16 fade-up-element">
+          <span class="text-xs font-bold tracking-widest text-brand-blue uppercase bg-blue-100/60 px-3 py-1 rounded-full">Services</span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-dark mt-3 tracking-tight">
+            把複雜的問題，轉化為可執行的解決方案。
+          </h2>
+          <p class="text-base text-brand-muted mt-3">
+            從需求釐清、流程分析到技術整合，讓 AI 與現代科技真正融入日常工作流程。
+          </p>
+          <div class="w-12 h-1 bg-gradient-to-r from-brand-blue to-brand-purple mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <!-- 3 Core Services Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          
+          <!-- Service A -->
+          <div class="glass-card rounded-2xl p-8 bg-white flex flex-col justify-between border border-brand-border hover:shadow-xl transition-all duration-300 fade-up-element group">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 text-brand-blue flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <i data-lucide="bot" class="w-7 h-7"></i>
+              </div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-brand-blue">服務 A</span>
+              <h3 class="text-xl font-bold text-brand-dark mt-1 mb-3">AI 與智慧化流程整合</h3>
+              <p class="text-sm font-medium text-slate-700 mb-5 pb-4 border-b border-slate-100">
+                「協助釐清作業痛點與處理邏輯，讓 AI 成為日常檢索、整理與自動化的可靠副手。」
+              </p>
+              
+              <ul class="space-y-3 text-sm text-brand-muted mb-8">
+                <li class="flex items-start gap-2.5">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-mint shrink-0 mt-0.5"></i>
+                  <span>AI 應用情境與組織需求優先級盤點</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-mint shrink-0 mt-0.5"></i>
+                  <span>工作流程瓶頸分析與自動化邏輯優化</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-mint shrink-0 mt-0.5"></i>
+                  <span>專業文件與知識管理流程規劃 (RAG 原型)</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-mint shrink-0 mt-0.5"></i>
+                  <span>AI 輔助資料整理、除錯與一致性檢核</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-mint shrink-0 mt-0.5"></i>
+                  <span>系統功能規格邏輯及技術可行性評估</span>
+                </li>
+              </ul>
+            </div>
+
+            <button onclick="openServiceDetail('serviceA')" class="w-full py-3 px-4 rounded-xl border border-brand-border bg-brand-surface font-semibold text-sm text-brand-dark hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-colors flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-brand-blue">
+              <span>了解服務細節</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <!-- Service B -->
+          <div class="glass-card rounded-2xl p-8 bg-white flex flex-col justify-between border border-brand-border hover:shadow-xl transition-all duration-300 fade-up-element group">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 text-brand-purple flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <i data-lucide="map-pin" class="w-7 h-7"></i>
+              </div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-brand-purple">服務 B</span>
+              <h3 class="text-xl font-bold text-brand-dark mt-1 mb-3">資料分析與 GIS 空間資訊應用</h3>
+              <p class="text-sm font-medium text-slate-700 mb-5 pb-4 border-b border-slate-100">
+                「將分散孤島資料結構化，結合地圖空間維度，建立直觀清楚的決策支援儀表。」
+              </p>
+              
+              <ul class="space-y-3 text-sm text-brand-muted mb-8">
+                <li class="flex items-start gap-2.5">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-mint shrink-0 mt-0.5"></i>
+                  <span>異質資料清洗、正規化與結構化建置</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-mint shrink-0 mt-0.5"></i>
+                  <span>資料動態視覺化與決策趨勢統計分析</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-mint shrink-0 mt-0.5"></i>
+                  <span>GIS 空間資料圖層整合 (QGIS / WebGIS)</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-mint shrink-0 mt-0.5"></i>
+                  <span>地理坐標與業務營運資料關聯化建構</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-mint shrink-0 mt-0.5"></i>
+                  <span>AI 輔助跨圖資資訊檢索與空間判讀</span>
+                </li>
+              </ul>
+            </div>
+
+            <button onclick="openServiceDetail('serviceB')" class="w-full py-3 px-4 rounded-xl border border-brand-border bg-brand-surface font-semibold text-sm text-brand-dark hover:bg-brand-purple hover:text-white hover:border-brand-purple transition-colors flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-brand-purple">
+              <span>了解服務細節</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <!-- Service C -->
+          <div class="glass-card rounded-2xl p-8 bg-white flex flex-col justify-between border border-brand-border hover:shadow-xl transition-all duration-300 fade-up-element group">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-50 to-teal-50 text-brand-mint flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <i data-lucide="git-merge" class="w-7 h-7"></i>
+              </div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-emerald-600">服務 C</span>
+              <h3 class="text-xl font-bold text-brand-dark mt-1 mb-3">工程決策與資源整合</h3>
+              <p class="text-sm font-medium text-slate-700 mb-5 pb-4 border-b border-slate-100">
+                「架起現場技術、設備規格與管理階層溝通橋樑，梳理成本與執行風險。」
+              </p>
+              
+              <ul class="space-y-3 text-sm text-brand-muted mb-8">
+                <li class="flex items-start gap-2.5">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-mint shrink-0 mt-0.5"></i>
+                  <span>工程系統需求與功能業務邏輯嚴密梳理</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-mint shrink-0 mt-0.5"></i>
+                  <span>設備硬體規格、技術方案客觀比對評估</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-mint shrink-0 mt-0.5"></i>
+                  <span>工項資源盤點與預算成本結構分析思維</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-mint shrink-0 mt-0.5"></i>
+                  <span>人力、設備與物料進場排程邏輯協調整合</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-mint shrink-0 mt-0.5"></i>
+                  <span>專案履約條件、潛在施工與維運風險檢核</span>
+                </li>
+              </ul>
+            </div>
+
+            <button onclick="openServiceDetail('serviceC')" class="w-full py-3 px-4 rounded-xl border border-brand-border bg-brand-surface font-semibold text-sm text-brand-dark hover:bg-emerald-600 hover:text-white hover:border-emerald-600 transition-colors flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-emerald-600">
+              <span>了解服務細節</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Professional Bounds & Qualifications Disclaimer -->
+        <div class="mt-12 p-5 rounded-2xl bg-slate-50 border border-slate-200 text-xs sm:text-sm text-slate-600 leading-relaxed max-w-4xl mx-auto flex items-start gap-3">
+          <i data-lucide="shield-alert" class="w-5 h-5 text-brand-blue shrink-0 mt-0.5"></i>
+          <div>
+            <strong class="text-slate-800">專業顧問範疇與法律邊界說明：</strong>
+            上述服務主要為組織需求分析、系統規劃、資料處理、技術可行性評估與流程優化等諮詢顧問型服務。若涉及法定之正式工程細部設計、技師專業簽證、環境影響評估或法定審查等業務，均依現行法規由具備國家相應執業資格之專業技師或機構承辦。
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="portfolio" class="py-20 lg:py-28 bg-brand-surface relative border-t border-brand-border/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mx-auto text-center mb-16 fade-up-element">
+          <span class="text-xs font-bold tracking-widest text-brand-blue uppercase bg-blue-100/60 px-3 py-1 rounded-full">Portfolio & Cases</span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-dark mt-3 tracking-tight">
+            讓方法被看見，讓成果說話。
+          </h2>
+          <p class="text-base text-brand-muted mt-3">
+            從真實工作情境出發，展示問題分析、流程設計、資料整合與技術應用的思考歷程。
+          </p>
+          <div class="w-12 h-1 bg-gradient-to-r from-brand-blue to-brand-purple mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <!-- Case Studies 2x2 Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          
+          <!-- Case 1 -->
+          <div class="glass-card bg-white rounded-2xl p-7 border border-brand-border flex flex-col justify-between fade-up-element">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-3 py-1 rounded-full bg-blue-50 text-brand-blue font-mono text-xs font-bold">CASE 01 ‧ 實務示範草案</span>
+                <span class="text-xs text-slate-400">去識別化實務架構</span>
+              </div>
+              <h3 class="text-xl font-bold text-brand-dark mb-2">工業管線防災教育資訊整合</h3>
+              <p class="text-sm text-slate-600 mb-5 leading-relaxed">
+                整合繁雜的管線安全法規、影音教學、防救災專業手冊與常見問題，規劃線上數位學習與知識檢索機制。
+              </p>
+              
+              <!-- Case mini badges -->
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 mb-6 space-y-2 text-xs">
+                <div class="flex items-center justify-between text-slate-700">
+                  <span class="font-medium text-slate-500">核心課題：</span>
+                  <span>專業知識零散、前線人員查找耗時</span>
+                </div>
+                <div class="flex items-center justify-between text-slate-700">
+                  <span class="font-medium text-slate-500">解決方法：</span>
+                  <span>分類本體結構化 + 互動式問答路徑</span>
+                </div>
+                <div class="flex items-center justify-between text-slate-700">
+                  <span class="font-medium text-slate-500">衡量指標：</span>
+                  <span>單一問題檢索點擊步數、資訊更新維護工時</span>
+                </div>
+              </div>
+            </div>
+
+            <button onclick="openCaseModal('case1')" class="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-brand-blue hover:text-white font-semibold text-sm text-slate-700 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-blue">
+              <span>檢視完整思考脈絡與方案設計</span>
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <!-- Case 2 -->
+          <div class="glass-card bg-white rounded-2xl p-7 border border-brand-border flex flex-col justify-between fade-up-element">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-3 py-1 rounded-full bg-purple-50 text-brand-purple font-mono text-xs font-bold">CASE 02 ‧ 實務示範草案</span>
+                <span class="text-xs text-slate-400">RAG 技術原型設計</span>
+              </div>
+              <h3 class="text-xl font-bold text-brand-dark mb-2">AI 輔助知識管理與智能問答</h3>
+              <p class="text-sm text-slate-600 mb-5 leading-relaxed">
+                探索大型語言模型（LLM）與 RAG 檢索增強生成架構，解決組織專案文件龐雜與新人訓練斷層問題。
+              </p>
+              
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 mb-6 space-y-2 text-xs">
+                <div class="flex items-center justify-between text-slate-700">
+                  <span class="font-medium text-slate-500">核心課題：</span>
+                  <span>避免 AI 幻覺，確保法規引用 100% 溯源</span>
+                </div>
+                <div class="flex items-center justify-between text-slate-700">
+                  <span class="font-medium text-slate-500">解決方法：</span>
+                  <span>Chunking 切分演算法 + 向量比對與來源標記</span>
+                </div>
+                <div class="flex items-center justify-between text-slate-700">
+                  <span class="font-medium text-slate-500">衡量指標：</span>
+                  <span>回答精準度 (Relevance)、引用文獻正確率</span>
+                </div>
+              </div>
+            </div>
+
+            <button onclick="openCaseModal('case2')" class="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-brand-purple hover:text-white font-semibold text-sm text-slate-700 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-purple">
+              <span>檢視完整思考脈絡與方案設計</span>
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <!-- Case 3 -->
+          <div class="glass-card bg-white rounded-2xl p-7 border border-brand-border flex flex-col justify-between fade-up-element">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-600 font-mono text-xs font-bold">CASE 03 ‧ 實務示範草案</span>
+                <span class="text-xs text-slate-400">GIS 空間決策支援</span>
+              </div>
+              <h3 class="text-xl font-bold text-brand-dark mb-2">GIS 空間資料與決策視覺化</h3>
+              <p class="text-sm text-slate-600 mb-5 leading-relaxed">
+                將地理圖資、工業管線分佈、公共設施圖層與實體監測數據整合於統一空間座標，輔助風險快篩。
+              </p>
+              
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 mb-6 space-y-2 text-xs">
+                <div class="flex items-center justify-between text-slate-700">
+                  <span class="font-medium text-slate-500">核心課題：</span>
+                  <span>圖資格式不一 (CAD/SHP/KML)、跨系統難以比對</span>
+                </div>
+                <div class="flex items-center justify-between text-slate-700">
+                  <span class="font-medium text-slate-500">解決方法：</span>
+                  <span>坐標系統正規化 (TWD97/WGS84) + 多圖層套疊分析</span>
+                </div>
+                <div class="flex items-center justify-between text-slate-700">
+                  <span class="font-medium text-slate-500">衡量指標：</span>
+                  <span>跨部門圖資對齊時間、潛在交疊衝突誤判率</span>
+                </div>
+              </div>
+            </div>
+
+            <button onclick="openCaseModal('case3')" class="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-emerald-600 hover:text-white font-semibold text-sm text-slate-700 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-600">
+              <span>檢視完整思考脈絡與方案設計</span>
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <!-- Case 4 -->
+          <div class="glass-card bg-white rounded-2xl p-7 border border-brand-border flex flex-col justify-between fade-up-element">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-3 py-1 rounded-full bg-amber-50 text-amber-700 font-mono text-xs font-bold">CASE 04 ‧ 實務示範草案</span>
+                <span class="text-xs text-slate-400">流程與工程媒合</span>
+              </div>
+              <h3 class="text-xl font-bold text-brand-dark mb-2">智慧化流程與工程資源整合</h3>
+              <p class="text-sm text-slate-600 mb-5 leading-relaxed">
+                將複雜工程施工規範拆解為清晰作業流程，建立硬體規格比對矩陣與 AI 輔助文件檢視工作流。
+              </p>
+              
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 mb-6 space-y-2 text-xs">
+                <div class="flex items-center justify-between text-slate-700">
+                  <span class="font-medium text-slate-500">核心課題：</span>
+                  <span>廠商規格繁雜、審核人工比對繁重且易漏失</span>
+                </div>
+                <div class="flex items-center justify-between text-slate-700">
+                  <span class="font-medium text-slate-500">解決方法：</span>
+                  <span>參數化比對清單 + 自動化提取關鍵限制條件</span>
+                </div>
+                <div class="flex items-center justify-between text-slate-700">
+                  <span class="font-medium text-slate-500">衡量指標：</span>
+                  <span>技術規格覆核時程、初審缺漏返工次數</span>
+                </div>
+              </div>
+            </div>
+
+            <button onclick="openCaseModal('case4')" class="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-amber-600 hover:text-white font-semibold text-sm text-slate-700 transition-colors focus:outline-none focus:ring-2 focus:ring-amber-600">
+              <span>檢視完整思考脈絡與方案設計</span>
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section id="methodology" class="py-20 lg:py-28 bg-white relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mx-auto text-center mb-16 fade-up-element">
+          <span class="text-xs font-bold tracking-widest text-brand-blue uppercase bg-blue-100/60 px-3 py-1 rounded-full">Methodology</span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-dark mt-3 tracking-tight">
+            從問題開始，而不是從工具開始。
+          </h2>
+          <p class="text-base text-brand-muted mt-3">
+            拒絕盲目追逐科技潮流。我們依循嚴謹的 5 階段方法論，確保每一分技術投資都對準實質價值。
+          </p>
+          <div class="w-12 h-1 bg-gradient-to-r from-brand-blue to-brand-purple mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <!-- 5-Step Connected Flowchart -->
+        <div class="relative">
+          
+          <!-- Desktop connecting flow line -->
+          <div class="hidden lg:block absolute top-1/2 left-8 right-8 h-1 bg-gradient-to-r from-blue-200 via-purple-200 to-emerald-200 -translate-y-1/2 z-0" aria-hidden="true"></div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 relative z-10">
+            
+            <!-- Step 1 -->
+            <div class="glass-card bg-white p-6 rounded-2xl border border-brand-border text-center flex flex-col items-center fade-up-element hover:border-brand-blue">
+              <div class="w-12 h-12 rounded-full bg-blue-50 border-2 border-brand-blue text-brand-blue font-mono font-bold flex items-center justify-center text-sm mb-4 shadow-sm">
+                01
+              </div>
+              <span class="text-xs font-bold text-brand-blue uppercase tracking-wider">Understand</span>
+              <h3 class="text-base font-bold text-brand-dark mt-1 mb-2">釐清需求</h3>
+              <p class="text-xs text-brand-muted leading-relaxed">
+                確認核心業務問題、受眾痛點、既有系統限制與預期目標，不預設立場。
+              </p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="glass-card bg-white p-6 rounded-2xl border border-brand-border text-center flex flex-col items-center fade-up-element hover:border-brand-indigo">
+              <div class="w-12 h-12 rounded-full bg-indigo-50 border-2 border-brand-indigo text-brand-indigo font-mono font-bold flex items-center justify-center text-sm mb-4 shadow-sm">
+                02
+              </div>
+              <span class="text-xs font-bold text-brand-indigo uppercase tracking-wider">Analyze</span>
+              <h3 class="text-base font-bold text-brand-dark mt-1 mb-2">分析現況</h3>
+              <p class="text-xs text-brand-muted leading-relaxed">
+                全面盤點現有資料格式、人工流程節點、系統相依性與潛在作業風險。
+              </p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="glass-card bg-white p-6 rounded-2xl border border-brand-border text-center flex flex-col items-center fade-up-element hover:border-brand-purple">
+              <div class="w-12 h-12 rounded-full bg-purple-50 border-2 border-brand-purple text-brand-purple font-mono font-bold flex items-center justify-center text-sm mb-4 shadow-sm">
+                03
+              </div>
+              <span class="text-xs font-bold text-brand-purple uppercase tracking-wider">Design</span>
+              <h3 class="text-base font-bold text-brand-dark mt-1 mb-2">規劃方案</h3>
+              <p class="text-xs text-brand-muted leading-relaxed">
+                架構最合適的 AI 輔助機制、GIS 空間整合或標準作業流程（SOP）。
+              </p>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="glass-card bg-white p-6 rounded-2xl border border-brand-border text-center flex flex-col items-center fade-up-element hover:border-teal-500">
+              <div class="w-12 h-12 rounded-full bg-teal-50 border-2 border-teal-500 text-teal-600 font-mono font-bold flex items-center justify-center text-sm mb-4 shadow-sm">
+                04
+              </div>
+              <span class="text-xs font-bold text-teal-600 uppercase tracking-wider">Validate</span>
+              <h3 class="text-base font-bold text-brand-dark mt-1 mb-2">驗證可行性</h3>
+              <p class="text-xs text-brand-muted leading-relaxed">
+                實作小型原型（PoC），檢驗資料品質、運算延遲、維運成本與易用性。
+              </p>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="glass-card bg-white p-6 rounded-2xl border border-brand-border text-center flex flex-col items-center fade-up-element hover:border-brand-mint">
+              <div class="w-12 h-12 rounded-full bg-emerald-50 border-2 border-brand-mint text-brand-mint font-mono font-bold flex items-center justify-center text-sm mb-4 shadow-sm">
+                05
+              </div>
+              <span class="text-xs font-bold text-brand-mint uppercase tracking-wider">Improve</span>
+              <h3 class="text-base font-bold text-brand-dark mt-1 mb-2">持續優化</h3>
+              <p class="text-xs text-brand-muted leading-relaxed">
+                依據現場人員真實回饋持續微調演算法與介面，建立可自我演進的機制。
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="insights" class="py-20 lg:py-28 bg-brand-surface relative border-t border-brand-border/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mx-auto text-center mb-16 fade-up-element">
+          <span class="text-xs font-bold tracking-widest text-brand-blue uppercase bg-blue-100/60 px-3 py-1 rounded-full">Insights & Sharing</span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-dark mt-3 tracking-tight">
+            持續探索，分享真正用得上的知識。
+          </h2>
+          <p class="text-base text-brand-muted mt-3">
+            結合第一線專案淬鍊出的實務心得，專注於落地方法與思維邏輯。（示範文章預覽）
+          </p>
+          <div class="w-12 h-1 bg-gradient-to-r from-brand-blue to-brand-purple mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <!-- 3 Articles Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Article 1 -->
+          <article class="glass-card bg-white rounded-2xl p-6 border border-brand-border flex flex-col justify-between fade-up-element">
+            <div>
+              <div class="flex items-center justify-between text-xs text-brand-muted mb-3">
+                <span class="px-2.5 py-1 rounded bg-blue-50 text-brand-blue font-semibold">AI 應用與 RAG</span>
+                <span>約 6 分鐘閱讀</span>
+              </div>
+              <h3 class="text-lg font-bold text-brand-dark mb-2.5 hover:text-brand-blue transition-colors">
+                從業務現場到 RAG 架構：如何讓大型語言模型真正讀懂組織內規？
+              </h3>
+              <p class="text-sm text-slate-600 mb-6 leading-relaxed line-clamp-3">
+                通用 AI 工具很聰明，但往往缺乏企業專屬脈絡。本文探討如何透過精準的分塊（Chunking）與元資料（Metadata）設計，讓問答機器人給出有憑有據、可追溯條文的答案。
+              </p>
+            </div>
+            
+            <button onclick="openArticleModal('article1')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue hover:text-brand-purple transition-colors focus:outline-none focus:underline">
+              <span>閱讀示範文章</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="glass-card bg-white rounded-2xl p-6 border border-brand-border flex flex-col justify-between fade-up-element">
+            <div>
+              <div class="flex items-center justify-between text-xs text-brand-muted mb-3">
+                <span class="px-2.5 py-1 rounded bg-purple-50 text-brand-purple font-semibold">GIS 與空間分析</span>
+                <span>約 8 分鐘閱讀</span>
+              </div>
+              <h3 class="text-lg font-bold text-brand-dark mb-2.5 hover:text-brand-purple transition-colors">
+                空間資料不只是地圖：結合 QGIS 與資料清理建立決策支援圖層
+              </h3>
+              <p class="text-sm text-slate-600 mb-6 leading-relaxed line-clamp-3">
+                許多組織擁有大量的坐標與巡檢紀錄，卻難以化為決策依據。分享如何利用開源 QGIS 進行屬性清理、坐標校正，並疊合公共管線與敏感熱區，建立直覺風險圖。
+              </p>
+            </div>
+            
+            <button onclick="openArticleModal('article2')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-purple hover:text-brand-blue transition-colors focus:outline-none focus:underline">
+              <span>閱讀示範文章</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </article>
+
+          <!-- Article 3 -->
+          <article class="glass-card bg-white rounded-2xl p-6 border border-brand-border flex flex-col justify-between fade-up-element">
+            <div>
+              <div class="flex items-center justify-between text-xs text-brand-muted mb-3">
+                <span class="px-2.5 py-1 rounded bg-emerald-50 text-emerald-600 font-semibold">數位思維與管理</span>
+                <span>約 5 分鐘閱讀</span>
+              </div>
+              <h3 class="text-lg font-bold text-brand-dark mb-2.5 hover:text-emerald-600 transition-colors">
+                擺脫工具焦慮：以「問題為中心」的組織智慧化導入五步法
+              </h3>
+              <p class="text-sm text-slate-600 mb-6 leading-relaxed line-clamp-3">
+                面對每週推陳出新的 AI 工具，團隊常陷入疲於奔命的盲從。本文分享顧問視角：如何從現場工時浪費最大的「摩擦點」切入，用最省力、最穩定的架構啟動改變。
+              </p>
+            </div>
+            
+            <button onclick="openArticleModal('article3')" class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-600 hover:text-brand-blue transition-colors focus:outline-none focus:underline">
+              <span>閱讀示範文章</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 業務內容 -->
+    <section id="business" class="py-20 lg:py-28 bg-brand-surface relative border-t border-brand-border/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-12 fade-up-element">
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-xs font-semibold text-brand-blue">
+            <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
+            業務內容
+          </span>
+          <h2 class="mt-4 text-3xl sm:text-4xl font-extrabold text-brand-dark tracking-tight">專業服務與執行項目</h2>
+          <p class="mt-4 text-brand-muted leading-relaxed">以查核、訓練與實務演練，全面提升工業管線安全管理與應變能力。</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+          <article class="glass-card rounded-2xl p-7 fade-up-element">
+            <div class="w-14 h-14 rounded-2xl bg-blue-50 text-brand-blue flex items-center justify-center mb-6">
+              <i class="fa-solid fa-shield-halved text-2xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="text-xl font-bold text-brand-dark mb-4">管線查核</h3>
+            <p class="text-sm text-brand-muted leading-7">為確保工業管線的安全與合規性，本子項計畫辦理高雄市既有工業管線業者自主檢查執行情況稽核。稽核內容包含安全管理系統、維護檢查與緊急應變等面向，透過文件審查與現場所見，協助釐清缺失並促使業者建立更完善的管線管理機制。</p>
+          </article>
+
+          <article class="glass-card rounded-2xl p-7 fade-up-element">
+            <div class="w-14 h-14 rounded-2xl bg-purple-50 text-brand-purple flex items-center justify-center mb-6">
+              <i class="fa-solid fa-graduation-cap text-2xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="text-xl font-bold text-brand-dark mb-4">教育訓練</h3>
+            <p class="text-sm text-brand-muted leading-7">本計畫團隊參照 TEEX、NASFM 及我國毒性及關注化學物質專業應變人員訓練課程架構，逐年調整課程內容，並導入多項實作訓練與數位化教學工具，以強化人員技能養成並提升整體應變效能。</p>
+          </article>
+
+          <article class="glass-card rounded-2xl p-7 fade-up-element">
+            <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-6">
+              <i class="fa-solid fa-triangle-exclamation text-2xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="text-xl font-bold text-brand-dark mb-4">緊急應變測試</h3>
+            <p class="text-sm text-brand-muted leading-7">本計畫辦理多場工業管線災害應變測試，針對演練中呈現的不足提出具體改善建議，使應變過程更貼近真實情境。透過持續演練與回饋機制，進一步提升各單位在事件發生時的應變成熟度。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 聯絡我與社群連結 -->
+    <section id="contact-me" class="py-20 lg:py-24 bg-white relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-10 fade-up-element">
+          <span class="text-xs font-bold tracking-widest text-brand-blue uppercase bg-blue-100/60 px-3 py-1 rounded-full">Contact Me</span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-dark mt-3 tracking-tight">與我保持聯繫</h2>
+          <p class="text-base text-brand-muted mt-3">歡迎透過社群平台聯絡，或填寫需求表單讓我了解您的專案需求。</p>
+        </div>
+
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          <div class="glass-card rounded-2xl p-7 sm:p-8 fade-up-element">
+            <h3 class="text-xl font-bold text-brand-dark mb-2">社群平台</h3>
+            <p class="text-sm text-brand-muted mb-6">選擇您方便的方式與我聯繫。</p>
+            <div class="grid grid-cols-2 gap-3">
+              <a href="https://line.me/ti/p/hOfVi_Go82" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-green-700 hover:bg-green-100 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500">
+                <i class="fa-brands fa-line text-xl" aria-hidden="true"></i><span class="font-semibold">LINE</span>
+              </a>
+              <a href="https://www.facebook.com/MarketingDataScienceTMR/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 rounded-xl border border-blue-200 bg-blue-50 px-4 py-3 text-blue-700 hover:bg-blue-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <i class="fa-brands fa-facebook text-xl" aria-hidden="true"></i><span class="font-semibold">Facebook</span>
+              </a>
+              <a href="https://www.linkedin.com/in/howardzhong/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 rounded-xl border border-sky-200 bg-sky-50 px-4 py-3 text-sky-700 hover:bg-sky-100 transition-colors focus:outline-none focus:ring-2 focus:ring-sky-500">
+                <i class="fa-brands fa-linkedin text-xl" aria-hidden="true"></i><span class="font-semibold">LinkedIn</span>
+              </a>
+              <a href="https://github.com/HowardNTUST" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-slate-700 hover:bg-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-500">
+                <i class="fa-brands fa-github text-xl" aria-hidden="true"></i><span class="font-semibold">GitHub</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-2xl p-7 sm:p-8 bg-gradient-to-br from-blue-50 via-white to-purple-50 border border-blue-100 shadow-sm fade-up-element flex flex-col justify-between">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-white text-brand-purple shadow-sm flex items-center justify-center mb-5">
+                <i class="fa-solid fa-clipboard-list text-2xl" aria-hidden="true"></i>
+              </div>
+              <h3 class="text-xl font-bold text-brand-dark mb-2">填寫需求表單</h3>
+              <p class="text-sm text-brand-muted leading-relaxed mb-6">請透過 Google Form 提供您的需求與聯絡資訊，我會依據內容進一步與您聯繫。</p>
+            </div>
+            <a href="https://forms.gle/8HUGs9PANWc2YynM7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple px-5 py-3.5 text-white font-bold shadow-lg shadow-brand-blue/20 hover:opacity-95 transition-opacity focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2">
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              <span>開啟需求表單</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-20 lg:py-28 bg-white relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mx-auto text-center mb-16 fade-up-element">
+          <span class="text-xs font-bold tracking-widest text-brand-blue uppercase bg-blue-100/60 px-3 py-1 rounded-full">Contact & Consultation</span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-dark mt-3 tracking-tight">
+            你的下一個好點子，值得一次深入討論。
+          </h2>
+          <p class="text-base text-brand-muted mt-3">
+            無論是 AI 導入評估、資料清理整合、GIS 空間圖資應用或工作流程優化，都可以先從釐清核心問題開始。
+          </p>
+          <div class="w-12 h-1 bg-gradient-to-r from-brand-blue to-brand-purple mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          <!-- Booking Option Card -->
+          <div class="lg:col-span-5 glass-card bg-gradient-to-br from-blue-50/70 via-white to-purple-50/50 p-8 rounded-2xl border border-blue-200/80 shadow-md fade-up-element">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold mb-4">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+              建議方式 ‧ 即時預約
+            </div>
+            <h3 class="text-xl font-bold text-brand-dark mb-3">線上預約專屬諮詢時段</h3>
+            <p class="text-sm text-slate-600 mb-6 leading-relaxed">
+              點擊直接透過 Google Calendar 預約合適的線上晤談時段，省去信件來回確認時間的等待。
+            </p>
+
+            <a href="https://calendar.app.google/GhRzEzZ2mnW4hgZZ7" target="_blank" rel="noopener noreferrer"
+               class="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-brand-blue to-brand-purple text-white font-bold text-base shadow-lg shadow-brand-blue/20 hover:opacity-95 transition-all flex items-center justify-center gap-2 group focus:outline-none focus:ring-2 focus:ring-brand-blue">
+              <i data-lucide="calendar" class="w-5 h-5"></i>
+              <span>立即預約線上會議</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+
+            <div class="mt-8 pt-6 border-t border-slate-200/80 space-y-3 text-xs text-brand-muted">
+              <div class="flex items-center gap-2">
+                <i data-lucide="clock" class="w-4 h-4 text-brand-blue"></i>
+                <span>標準線上諮詢時長：30 ~ 45 分鐘</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i data-lucide="file-text" class="w-4 h-4 text-brand-purple"></i>
+                <span>晤談前建議備妥：核心痛點陳述或初步資料範例</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i data-lucide="compass" class="w-4 h-4 text-emerald-600"></i>
+                <a href="#services" class="underline hover:text-brand-dark font-medium">先了解我的解決方案細節 →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Inquiry Form -->
+          <div class="lg:col-span-7 bg-white p-8 rounded-2xl border border-brand-border shadow-sm fade-up-element">
+            <div class="flex items-center justify-between mb-6">
+              <h3 class="text-lg font-bold text-brand-dark">填寫諮詢需求說明</h3>
+              <span class="text-xs text-brand-muted">帶有 <span class="text-red-500">*</span> 為必填欄位</span>
+            </div>
+
+            <form id="consultation-form" novalidate class="space-y-4">
+              
+              <!-- Name & Email -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="form-name" class="block text-xs font-semibold text-slate-700 mb-1">
+                    姓名或稱呼 <span class="text-red-500">*</span>
+                  </label>
+                  <input type="text" id="form-name" name="name" required placeholder="例如：林經理 / 陳先生"
+                         class="w-full px-3.5 py-2.5 rounded-xl border border-brand-border bg-slate-50 text-sm text-brand-dark focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition-all">
+                  <p class="text-[11px] text-red-500 mt-1 hidden" id="name-error">請填寫您的稱呼</p>
+                </div>
+
+                <div>
+                  <label for="form-email" class="block text-xs font-semibold text-slate-700 mb-1">
+                    電子郵件 Email <span class="text-red-500">*</span>
+                  </label>
+                  <input type="email" id="form-email" name="email" required placeholder="name@organization.com"
+                         class="w-full px-3.5 py-2.5 rounded-xl border border-brand-border bg-slate-50 text-sm text-brand-dark focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition-all">
+                  <p class="text-[11px] text-red-500 mt-1 hidden" id="email-error">請輸入有效格式的電子信箱</p>
+                </div>
+              </div>
+
+              <!-- Subject / Topic -->
+              <div>
+                <label for="form-topic" class="block text-xs font-semibold text-slate-700 mb-1">
+                  諮詢主題領域 <span class="text-red-500">*</span>
+                </label>
+                <select id="form-topic" name="topic" required
+                        class="w-full px-3.5 py-2.5 rounded-xl border border-brand-border bg-slate-50 text-sm text-brand-dark focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition-all">
+                  <option value="" disabled selected>請選擇您的主要諮詢方向</option>
+                  <option value="ai-process">AI 導入與智慧化工作流程整合</option>
+                  <option value="data-gis">資料分析、清理與 GIS 空間圖資應用</option>
+                  <option value="engineering-resource">工程系統需求分析與技術規格整合</option>
+                  <option value="knowledge-rag">知識庫整理與 AI 輔助文件檢索</option>
+                  <option value="other">其他跨領域合作提案</option>
+                </select>
+                <p class="text-[11px] text-red-500 mt-1 hidden" id="topic-error">請選擇諮詢主題</p>
+              </div>
+
+              <!-- Current Problem -->
+              <div>
+                <label for="form-problem" class="block text-xs font-semibold text-slate-700 mb-1">
+                  目前面臨的問題或痛點 <span class="text-red-500">*</span>
+                </label>
+                <textarea id="form-problem" name="problem" rows="3" required placeholder="簡短描述目前遭遇的瓶頸，例如：資料分散在多個 Excel 與紙本，查核耗費過多人力..."
+                          class="w-full px-3.5 py-2 rounded-xl border border-brand-border bg-slate-50 text-sm text-brand-dark focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition-all"></textarea>
+                <p class="text-[11px] text-red-500 mt-1 hidden" id="problem-error">請簡短陳述目前遭遇的問題</p>
+              </div>
+
+              <!-- Expected Goal -->
+              <div>
+                <label for="form-goal" class="block text-xs font-semibold text-slate-700 mb-1">
+                  希望達成的目標或期望產出
+                </label>
+                <input type="text" id="form-goal" name="goal" placeholder="例如：希望在三個月內評估 RAG 可行性，或建立管線套疊分析地圖"
+                       class="w-full px-3.5 py-2.5 rounded-xl border border-brand-border bg-slate-50 text-sm text-brand-dark focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition-all">
+              </div>
+
+              <!-- Frontend Demo Notice -->
+              <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 text-xs text-amber-800">
+                <i data-lucide="alert-circle" class="w-3.5 h-3.5 inline mr-1 text-amber-600"></i>
+                提示：本表單目前為前端互動示範。如需最快回覆，強烈建議您直接使用上方綠色按鈕預約 Google 諮詢時段。
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" 
+                      class="w-full py-3.5 px-6 rounded-xl bg-brand-dark hover:bg-slate-800 text-white font-semibold text-sm transition-all shadow-md flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900">
+                <i data-lucide="send" class="w-4 h-4"></i>
+                <span>送出諮詢需求</span>
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-slate-900 text-slate-400 py-16 border-t border-slate-800 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
+        
+        <!-- Brand Info -->
+        <div class="md:col-span-5 space-y-4">
+          <div class="flex items-center gap-2.5 text-white">
+            <div class="w-8 h-8 rounded-lg bg-brand-blue flex items-center justify-center">
+              <i data-lucide="cpu" class="w-4 h-4"></i>
+            </div>
+            <span class="font-bold text-base tracking-tight" id="footer-brand-name">AI 解決方案與工程整合</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
+            結合 AI、資料分析、智慧化流程與工程整合能力，協助組織釐清複雜問題、優化作業流程，並將技術轉化為可執行的實務解決方案。
+          </p>
+          <div class="text-xs text-slate-500 font-mono">
+            Professional Consultant ‧ Workflow Design ‧ GIS Spatial Analytics
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="md:col-span-3 space-y-3">
+          <h4 class="text-white font-bold text-xs uppercase tracking-wider">站內快速導覽</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#about" class="hover:text-white transition-colors">關於我與專業理念</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors">三大核心顧問服務</a></li>
+            <li><a href="#portfolio" class="hover:text-white transition-colors">實務案例思考歷程</a></li>
+            <li><a href="#methodology" class="hover:text-white transition-colors">五階段工作方法論</a></li>
+            <li><a href="#insights" class="hover:text-white transition-colors">技術觀點與實踐文章</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact & Direct Links -->
+        <div class="md:col-span-4 space-y-3">
+          <h4 class="text-white font-bold text-xs uppercase tracking-wider">直接聯繫與預約</h4>
+          <p class="text-xs text-slate-400">
+            有跨領域技術媒合或專案評估需求？歡迎隨時預約：
+          </p>
+          <a href="https://calendar.app.google/GhRzEzZ2mnW4hgZZ7" target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-xs font-medium border border-slate-700 transition-colors">
+            <i data-lucide="calendar" class="w-3.5 h-3.5 text-brand-blue"></i>
+            <span>開啟 Google 日曆預約</span>
+          </a>
+          <div class="pt-2 text-[11px] text-slate-500">
+            聯絡信箱欄位：<span class="text-slate-400">[可在設定物件中自訂您的 Email]</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright & Legal -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <div>
+          &copy; <span id="current-year">2026</span> AI & Engineering Solutions Consultant. All rights reserved.
+        </div>
+        <div class="flex items-center gap-4 text-xs">
+          <span>本站為個人品牌專業作品展示</span>
+          <span class="text-slate-700">|</span>
+          <a href="#services" class="hover:text-slate-400 transition-colors">專業邊界聲明</a>
+          <span class="text-slate-700">|</span>
+          <button onclick="openPrivacyModal()" class="hover:text-slate-400 transition-colors focus:outline-none">隱私與免責聲明</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="app-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-900/60 backdrop-blur-sm p-4 sm:p-6 md:p-10 flex items-center justify-center" 
+       role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    
+    <div class="relative w-full max-w-3xl bg-white rounded-2xl shadow-2xl border border-brand-border overflow-hidden my-8 animate-fadeIn">
+      
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between px-6 py-4 border-b border-brand-border bg-brand-surface">
+        <div class="flex items-center gap-2">
+          <span id="modal-category-badge" class="px-2.5 py-0.5 rounded text-xs font-semibold bg-blue-100 text-brand-blue">細節預覽</span>
+          <h3 id="modal-title" class="text-base sm:text-lg font-bold text-brand-dark">標題</h3>
+        </div>
+        <button id="modal-close-btn" class="p-2 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-200/60 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-blue" aria-label="關閉彈出視窗">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body Content -->
+      <div id="modal-content" class="px-6 py-6 sm:px-8 space-y-4 max-h-[70vh] overflow-y-auto text-sm text-slate-700 leading-relaxed">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="flex items-center justify-end px-6 py-4 border-t border-brand-border bg-slate-50 gap-3">
+        <a id="modal-cta-btn" href="https://calendar.app.google/GhRzEzZ2mnW4hgZZ7" target="_blank" rel="noopener noreferrer"
+           class="px-5 py-2 rounded-xl bg-brand-blue text-white text-xs font-semibold hover:bg-brand-indigo transition-colors flex items-center gap-1.5">
+          <span>預約進一步討論</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+        </a>
+        <button id="modal-dismiss-btn" class="px-4 py-2 rounded-xl border border-slate-300 text-slate-700 text-xs font-semibold hover:bg-slate-100 transition-colors">
+          關閉
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="toast-notification" class="fixed bottom-6 right-6 z-50 max-w-sm w-full bg-white border border-brand-border rounded-2xl shadow-xl p-4 hidden transition-all duration-300" role="alert">
+    <div class="flex items-start gap-3">
+      <div id="toast-icon-container" class="p-2 rounded-xl bg-blue-50 text-brand-blue">
+        <i data-lucide="info" class="w-5 h-5" id="toast-icon"></i>
+      </div>
+      <div class="flex-1">
+        <h4 id="toast-title" class="text-sm font-bold text-brand-dark">通知標題</h4>
+        <p id="toast-message" class="text-xs text-brand-muted mt-0.5 leading-relaxed">通知詳細訊息內容</p>
+      </div>
+      <button onclick="dismissToast()" class="text-slate-400 hover:text-slate-600 p-1">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    /**
+     * =========================================================================
+     * 品牌全域設定物件 (BRAND CONFIGURATION OBJECT)
+     * 您日後可直接在此處替換個人姓名、職稱、聯絡信箱、案例與文章內容，無需翻改整份 HTML
+     * =========================================================================
+     */
+    const BRAND_CONFIG = {
+      profile: {
+        brandName: "AI 解決方案與工程整合",
+        consultantName: "您的稱呼 / 專業架構師", // 可替換為真實姓名
+        roleTitle: "跨領域技術整合顧問 ‧ 智慧化流程架構師",
+        email: "contact@example.com", // 可替換為個人信箱
+        bookingCalendarUrl: "https://calendar.app.google/GhRzEzZ2mnW4hgZZ7",
+        tagline: "讓 AI 與數據，成為每個人的超能力。"
+      },
+      
+      // 核心服務詳細內容 (用於 Modal 檢視)
+      services: {
+        serviceA: {
+          badge: "核心服務 A",
+          title: "AI 與智慧化流程整合 ‧ 實務導入細節",
+          body: `
+            <div class="space-y-4">
+              <p class="font-medium text-slate-900">
+                面對快速演進的生成式 AI，許多團隊往往面臨「工具很多，但不知道怎麼對接現有業務」的困局。本服務以現場痛點為核心，協助組織規劃具體可行的 AI 輔助流程。
+              </p>
+              <h4 class="font-bold text-slate-800 text-sm border-l-2 border-brand-blue pl-2">顧問重點項目：</h4>
+              <ul class="list-disc pl-5 space-y-1.5 text-xs text-slate-600">
+                <li><strong>需求優先級矩陣：</strong> 盤點各部門繁瑣重工環節，評估哪些適合導入 AI，哪些應優先建立標準規則。</li>
+                <li><strong>流程邏輯設計：</strong> 拆解輸入、處理邏輯、資料檢核點與輸出格式，建立清晰的 SOP。</li>
+                <li><strong>AI 輔助檢核與資料清理：</strong> 規劃如何利用大型模型批次檢查表格資料缺漏、用詞不一致或邏輯衝突。</li>
+                <li><strong>人機協同安全機制：</strong> 設定人工覆核節點（Human-in-the-loop），確保關鍵業務結論絕不發生幻覺偏差。</li>
+              </ul>
+              <div class="p-3 bg-blue-50/70 rounded-xl border border-blue-100 text-xs text-blue-900">
+                <strong>適用對象：</strong> 欲評估內部作業智慧化、知識庫搭建或自動化表單流程的專案團隊與企業部門。
+              </div>
+            </div>
+          `
+        },
+        serviceB: {
+          badge: "核心服務 B",
+          title: "資料分析與 GIS 空間資訊應用 ‧ 實務導入細節",
+          body: `
+            <div class="space-y-4">
+              <p class="font-medium text-slate-900">
+                空間資料具有強烈的情境關聯性。單純的表格很難看出位置與環境風險的交互影響，結合 GIS 與空間分析方能釋放數據真正的決策價值。
+              </p>
+              <h4 class="font-bold text-slate-800 text-sm border-l-2 border-brand-purple pl-2">顧問重點項目：</h4>
+              <ul class="list-disc pl-5 space-y-1.5 text-xs text-slate-600">
+                <li><strong>空間座標與異質資料清洗：</strong> 處理 TWD97、WGS84 座標轉換偏差、CAD 圖層轉換與非結構化空間屬性。</li>
+                <li><strong>主題圖層多維疊合：</strong> 將工業管線、防救災熱區、敏感情區及人口聚落進行空間緩衝區分析（Buffer Analysis）。</li>
+                <li><strong>決策視覺化儀表規劃：</strong> 協助規劃互動式空間地圖架構，讓管理階層一眼掌握前線動態與優先預警點。</li>
+                <li><strong>AI 輔助空間檢索概念：</strong> 探索如何透過自然語言查詢特定空間範圍內的設備屬性與歷史維修紀錄。</li>
+              </ul>
+              <div class="p-3 bg-purple-50/70 rounded-xl border border-purple-100 text-xs text-purple-900">
+                <strong>適用對象：</strong> 具有場域管理、管線巡檢、土地利用、工區監控或災害預防需求的專案管理單位。
+              </div>
+            </div>
+          `
+        },
+        serviceC: {
+          badge: "核心服務 C",
+          title: "工程決策與資源整合 ‧ 實務導入細節",
+          body: `
+            <div class="space-y-4">
+              <p class="font-medium text-slate-900">
+                工程專案的挫敗往往非因技術不足，而是溝通斷層。本服務專注於技術邏輯的跨部門翻譯，將複雜的設備規格與施工要求梳理為清晰的對比決策架構。
+              </p>
+              <h4 class="font-bold text-slate-800 text-sm border-l-2 border-brand-mint pl-2">顧問重點項目：</h4>
+              <ul class="list-disc pl-5 space-y-1.5 text-xs text-slate-600">
+                <li><strong>規格同等品與技術方案客觀比對：</strong> 整理多方廠商規格清單，建立嚴謹的限制條件矩陣。</li>
+                <li><strong>工項邏輯與成本結構梳理：</strong> 拆解人工、設備、機具與材料之關聯性，協助建立清楚的成本控制思維。</li>
+                <li><strong>專案介面風險檢核：</strong> 提早分析時程排程的相依衝突點，降低現場進場等待或重工的潛在風險。</li>
+              </ul>
+              <div class="p-3 bg-emerald-50/70 rounded-xl border border-emerald-100 text-xs text-emerald-900">
+                <strong>法規說明：</strong> 本服務為需求分析、規格比對、溝通協調與方案評估之專業顧問；若需依法辦理工程設計與技師簽證，需由合格法定技師執行。
+              </div>
+            </div>
+          `
+        }
+      },
+
+      // 案例詳細分析資料 (用於 Modal 檢視)
+      cases: {
+        case1: {
+          badge: "CASE 01 ‧ 實務案例架構",
+          title: "工業管線防災教育資訊整合 ‧ 案例思路深度剖析",
+          body: `
+            <div class="space-y-5">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                <div class="p-3 bg-slate-50 rounded-lg"><strong>問題背景：</strong> 工業管線涉及高度專業法規與安全應變手冊，資訊散落各處。</div>
+                <div class="p-3 bg-slate-50 rounded-lg"><strong>面臨挑戰：</strong> 傳統紙本不易檢索，前線人員難以在短時間內掌握學習要點。</div>
+              </div>
+
+              <div>
+                <h4 class="font-bold text-slate-900 text-sm mb-1.5">分析方法與技術思考：</h4>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                  將內容依受眾角色（巡檢人員、管理主管、一般民眾）切分為不同學習維度；整理常見問題本體（Ontology），建立結構化知識節點，並規劃數位化線上學習與測驗評核流程。
+                </p>
+              </div>
+
+              <div>
+                <h4 class="font-bold text-slate-900 text-sm mb-1.5">解決方案設計：</h4>
+                <ul class="list-disc pl-5 space-y-1 text-xs text-slate-600">
+                  <li>建立統一知識內容架構，整合影音教學、法規簡報與標準作業步驟。</li>
+                  <li>規劃易於操作的學習進度追蹤機制與完成紀錄。</li>
+                  <li>探索 AI 問答檢索介面，讓使用者輸入白話即可快速定位到對應法規章節。</li>
+                </ul>
+              </div>
+
+              <div class="p-3 bg-blue-50/80 rounded-xl border border-blue-200 text-xs">
+                <strong class="text-blue-900">可衡量的指標規劃 (KPIs)：</strong>
+                <span class="text-blue-800">知識檢索耗時由數十分鐘縮短至 3 分鐘內；教育訓練完成率與覆核效率顯著提升；教材內容更新維護週期縮短 40%。</span>
+              </div>
+              <div class="text-[11px] text-slate-400">
+                * 本案例為基於實際工作經驗整理之去識別化實務架構示範，旨在展示問題分析與整合思維。
+              </div>
+            </div>
+          `
+        },
+        case2: {
+          badge: "CASE 02 ‧ 實務案例架構",
+          title: "AI 輔助知識管理與問答 (RAG) ‧ 案例思路深度剖析",
+          body: `
+            <div class="space-y-5">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                <div class="p-3 bg-slate-50 rounded-lg"><strong>問題背景：</strong> 組織內部累積多年專案結案報告、標準作業規範與技術手冊。</div>
+                <div class="p-3 bg-slate-50 rounded-lg"><strong>面臨挑戰：</strong> 直接使用商用 AI 會發生嚴重「幻覺」，無法引用具體文件頁次。</div>
+              </div>
+
+              <div>
+                <h4 class="font-bold text-slate-900 text-sm mb-1.5">分析方法與架構設計：</h4>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                  採用 RAG（檢索增強生成）架構。首先對非結構化 PDF/Word 進行文字清理與多層級 Chunking 切分；保留標題層級與元資料（Metadata）；再透過向量資料庫進行語意檢索，將最相關的文件片段注入模型 Prompt 中。
+                </p>
+              </div>
+
+              <div>
+                <h4 class="font-bold text-slate-900 text-sm mb-1.5">品質檢核機制規劃：</h4>
+                <ul class="list-disc pl-5 space-y-1 text-xs text-slate-600">
+                  <li><strong>來源強制標記：</strong> AI 產生的每一句關鍵論述，皆必須標記來源文件名稱與章節。</li>
+                  <li><strong>相似度閥值篩選：</strong> 當使用者問題在知識庫中找不到相符內容時，系統坦承回覆「無相關文件紀錄」，拒絕胡亂推測。</li>
+                </ul>
+              </div>
+
+              <div class="p-3 bg-purple-50/80 rounded-xl border border-purple-200 text-xs">
+                <strong class="text-purple-900">可衡量的指標規劃 (KPIs)：</strong>
+                <span class="text-purple-800">檢索命中率（Recall）、法規依據引用正確度達到 95% 以上，大幅降低新進專案人員學習曲線。</span>
+              </div>
+            </div>
+          `
+        },
+        case3: {
+          badge: "CASE 03 ‧ 實務案例架構",
+          title: "GIS 空間資料與決策視覺化 ‧ 案例思路深度剖析",
+          body: `
+            <div class="space-y-5">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                <div class="p-3 bg-slate-50 rounded-lg"><strong>問題背景：</strong> 多年來累積的管線與設施圖資格式多元，缺乏統一坐標基準。</div>
+                <div class="p-3 bg-slate-50 rounded-lg"><strong>面臨挑戰：</strong> 跨部門開會各自攜帶不同地圖，空間交疊衝突難以在同一平台研判。</div>
+              </div>
+
+              <div>
+                <h4 class="font-bold text-slate-900 text-sm mb-1.5">分析與技術實作：</h4>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                  透過 QGIS 進行坐標轉換（TWD97 二度分帶對齊 WGS84）；進行拓撲除錯（消除重疊線段與懸空節點）；建立屬性關聯資料表，將圖資與檢測歷史紀錄以空間 ID 進行串接。
+                </p>
+              </div>
+
+              <div class="p-3 bg-emerald-50/80 rounded-xl border border-emerald-200 text-xs">
+                <strong class="text-emerald-900">可衡量的指標規劃 (KPIs)：</strong>
+                <span class="text-emerald-800">空間套疊對位誤差降至標準容許範圍內；跨部門圖資查詢時間縮短 70%；大幅提升管線交會風險篩檢準確性。</span>
+              </div>
+            </div>
+          `
+        },
+        case4: {
+          badge: "CASE 04 ‧ 實務案例架構",
+          title: "智慧化流程與工程資源整合 ‧ 案例思路深度剖析",
+          body: `
+            <div class="space-y-5">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                <div class="p-3 bg-slate-50 rounded-lg"><strong>問題背景：</strong> 大型維護專案牽涉多家協力廠商設備規格，人工審核曠日費時。</div>
+                <div class="p-3 bg-slate-50 rounded-lg"><strong>面臨挑戰：</strong> 規格書用詞不一，人工核對極易忽略關鍵安全數值或耐壓條件。</div>
+              </div>
+
+              <div>
+                <h4 class="font-bold text-slate-900 text-sm mb-1.5">解決方案設計：</h4>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                  梳理標準化規格參數表（例如：材質、耐壓度、尺寸、認證標章）；利用 AI 進行初步文件內容提取與關鍵規格初篩，自動標註差異點供工程師覆核，大幅減輕初審負擔。
+                </p>
+              </div>
+
+              <div class="p-3 bg-amber-50/80 rounded-xl border border-amber-200 text-xs">
+                <strong class="text-amber-900">可衡量的指標規劃 (KPIs)：</strong>
+                <span class="text-amber-800">規格初審週期縮短 50%；技術缺漏退件次數減少 30% 以上；提升業主與承包團隊溝通透明度。</span>
+              </div>
+            </div>
+          `
+        }
+      },
+
+      // 示範文章全文內容 (用於 Modal 閱讀)
+      articles: {
+        article1: {
+          badge: "示範文章 ‧ AI 應用與 RAG",
+          title: "從業務現場到 RAG 架構：如何讓大型語言模型真正讀懂組織內規？",
+          body: `
+            <div class="space-y-4">
+              <p class="text-xs text-slate-400 font-mono">發佈日期：示範草稿 ‧ 預計閱讀時間：6 分鐘</p>
+              <p>許多企業與公部門在導入 ChatGPT 或通用大模型時，最常遇到的挫折是：模型講話很流利，但對機關的內規、作業手冊或特定的技術規範一無所知，甚至自信地捏造法條。</p>
+              <h4 class="font-bold text-slate-800 text-sm border-l-2 border-brand-blue pl-2">為什麼微調（Fine-tuning）不一定是首選？</h4>
+              <p class="text-xs text-slate-600">
+                微調需要昂貴的算力與大量標註資料，且一旦規範更新，重新訓練成本極高。對於需要「嚴格依法行事」的場域，RAG（檢索增強生成）是目前最穩定、成本效益最高的架構。
+              </p>
+              <h4 class="font-bold text-slate-800 text-sm border-l-2 border-brand-blue pl-2">三個成功落地的關鍵心法：</h4>
+              <ol class="list-decimal pl-5 space-y-1 text-xs text-slate-600">
+                <li><strong>別把整份 PDF 直接丟進去：</strong> 必須依照章節、表格與條文邏輯進行語意切分（Semantic Chunking）。</li>
+                <li><strong>嚴格的提示工程（Prompt）：</strong> 強制限制模型「僅能依據檢索到的片段回答，若無提及必須明確說不知道」。</li>
+                <li><strong>保持人機協同的清醒認知：</strong> AI 負責快速檢索與草擬初稿，正式法律結論依然需要專業人員把關。</li>
+              </ol>
+            </div>
+          `
+        },
+        article2: {
+          badge: "示範文章 ‧ GIS 與空間分析",
+          title: "空間資料不只是地圖：結合 QGIS 與資料清理建立決策支援圖層",
+          body: `
+            <div class="space-y-4">
+              <p class="text-xs text-slate-400 font-mono">發佈日期：示範草稿 ‧ 預計閱讀時間：8 分鐘</p>
+              <p>在許多防災與工程專案中，我們常看到「地圖上有密密麻麻的點，但沒有人知道能拿來做什麼決策」。這往往是因為空間資料缺乏結構化清洗與業務屬性連結。</p>
+              <h4 class="font-bold text-slate-800 text-sm border-l-2 border-brand-purple pl-2">坐標系對位：空間分析的第一道防線</h4>
+              <p class="text-xs text-slate-600">
+                台灣最常見的 TWD97 與 WGS84 坐標誤差可能造成數公尺乃至數百公尺的偏差。若在地下管線或防汛工程中發生偏差，可能造成災難性的誤判。
+              </p>
+              <h4 class="font-bold text-slate-800 text-sm border-l-2 border-brand-purple pl-2">從靜態圖層到動態決策：</h4>
+              <p class="text-xs text-slate-600">
+                利用 QGIS 的空間連接（Spatial Join），我們能將定期巡檢數據即時投射在地理網格上。當某個區域的異常頻率超過標準時，圖層會自動轉為警戒色，將被動查核轉為主動風險防範。
+              </p>
+            </div>
+          `
+        },
+        article3: {
+          badge: "示範文章 ‧ 數位思維與管理",
+          title: "擺脫工具焦慮：以「問題為中心」的組織智慧化導入五步法",
+          body: `
+            <div class="space-y-4">
+              <p class="text-xs text-slate-400 font-mono">發佈日期：示範草稿 ‧ 預計閱讀時間：5 分鐘</p>
+              <p>幾乎每週都有新的 AI 工具或開源框架問世。許多管理者產生嚴重的「工具焦慮」，急著買帳號、推軟體，最後卻淪為員工的負擔。</p>
+              <h4 class="font-bold text-slate-800 text-sm border-l-2 border-emerald-600 pl-2">先找摩擦點，再談技術選型</h4>
+              <p class="text-xs text-slate-600">
+                真正的數位轉型不是導入最貴的系統，而是消除工作現場最消耗心力的「低價值重工」。例如每天花一小時手動複製貼上表格、或者重複回答新進人員相同問題。
+              </p>
+              <p class="text-xs text-slate-600">
+                先用最簡單的 Python 腳本或標準化表單驗證可行性，當流程順暢後，才需要考慮導入複雜的自動化或大型語言模型。務實，是技術長遠落地的唯一基石。
+              </p>
+            </div>
+          `
+        }
+      }
+    };
+
+    /**
+     * STREAMING_CHUNK:Initializing typewriter animation logic...
+     */
+    function initTypewriter() {
+      const textElement = document.getElementById('typewriter-text');
+      const cursorElement = document.getElementById('typewriter-cursor');
+      if (!textElement) return;
+
+      const fullText = BRAND_CONFIG.profile.tagline || "讓 AI 與數據，成為每個人的超能力。";
+      
+      // 支援偏好減少動畫的使用者：直接顯示完整文字
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) {
+        textElement.textContent = fullText;
+        if (cursorElement) cursorElement.style.display = 'none';
+        return;
+      }
+
+      textElement.textContent = "";
+      let charIndex = 0;
+
+      function typeChar() {
+        if (charIndex < fullText.length) {
+          textElement.textContent += fullText.charAt(charIndex);
+          charIndex++;
+          // 打字間隔隨機性，呈現自然節奏
+          const typingSpeed = 70 + Math.random() * 50;
+          setTimeout(typeChar, typingSpeed);
+        } else {
+          // 完成打字後保留完整字樣，停止閃爍游標數秒後淡出游標
+          setTimeout(() => {
+            if (cursorElement) {
+              cursorElement.style.transition = "opacity 0.6s ease";
+              cursorElement.style.opacity = "0.2";
+            }
+          }, 2500);
+        }
+      }
+
+      // 稍微延遲後優雅啟動
+      setTimeout(typeChar, 400);
+    }
+
+    /**
+     * STREAMING_CHUNK:Initializing Hero Canvas particle graph network...
+     */
+    function initHeroCanvas() {
+      const canvas = document.getElementById('hero-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      // 支援 prefers-reduced-motion
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        return;
+      }
+
+      let width = 0;
+      let height = 0;
+      let animationFrameId = null;
+      let isCanvasVisible = true;
+
+      // 高解析度適配
+      function resizeCanvas() {
+        const dpr = window.devicePixelRatio || 1;
+        width = canvas.parentElement.clientWidth;
+        height = canvas.parentElement.clientHeight;
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        ctx.scale(dpr, dpr);
+      }
+
+      window.addEventListener('resize', resizeCanvas, { passive: true });
+      resizeCanvas();
+
+      // 產生低速浮動科技節點
+      const nodeCount = Math.min(32, Math.floor(width / 35));
+      const nodes = [];
+
+      for (let i = 0; i < nodeCount; i++) {
+        nodes.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.45,
+          vy: (Math.random() - 0.5) * 0.45,
+          radius: Math.random() * 2 + 1.5,
+          color: i % 3 === 0 ? 'rgba(37, 99, 235, 0.4)' : (i % 3 === 1 ? 'rgba(124, 58, 237, 0.35)' : 'rgba(16, 185, 129, 0.35)')
+        });
+      }
+
+      // 動畫主循環
+      function renderLoop() {
+        if (!isCanvasVisible) return;
+
+        ctx.clearRect(0, 0, width, height);
+
+        // 更新節點位置
+        for (let i = 0; i < nodes.length; i++) {
+          const n = nodes[i];
+          n.x += n.vx;
+          n.y += n.vy;
+
+          if (n.x < 0 || n.x > width) n.vx *= -1;
+          if (n.y < 0 || n.y > height) n.vy *= -1;
+
+          // 繪製節點圓形
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2);
+          ctx.fillStyle = n.color;
+          ctx.fill();
+
+          // 繪製近鄰連線（低對比輕量連線）
+          for (let j = i + 1; j < nodes.length; j++) {
+            const n2 = nodes[j];
+            const dx = n.x - n2.x;
+            const dy = n.y - n2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < 110) {
+              ctx.beginPath();
+              ctx.moveTo(n.x, n.y);
+              ctx.lineTo(n2.x, n2.y);
+              ctx.strokeStyle = `rgba(148, 163, 184, ${0.18 * (1 - dist / 110)})`;
+              ctx.lineWidth = 0.8;
+              ctx.stroke();
+            }
+          }
+        }
+
+        animationFrameId = requestAnimationFrame(renderLoop);
+      }
+
+      // IntersectionObserver: 當 Hero 不在可視區域時自動停止動畫，節省 GPU/CPU 效能
+      const heroSection = document.getElementById('hero');
+      if ('IntersectionObserver' in window && heroSection) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            isCanvasVisible = entry.isIntersecting;
+            if (isCanvasVisible) {
+              renderLoop();
+            } else if (animationFrameId) {
+              cancelAnimationFrame(animationFrameId);
+            }
+          });
+        }, { threshold: 0.1 });
+        observer.observe(heroSection);
+      } else {
+        renderLoop();
+      }
+    }
+
+    /**
+     * STREAMING_CHUNK:Configuring Scroll Observer for Navigation and Reveal effects...
+     */
+    function initScrollEffects() {
+      const header = document.getElementById('site-header');
+      const navLinks = document.querySelectorAll('.nav-link');
+      const sections = document.querySelectorAll('section[id]');
+
+      // 導覽列捲動毛玻璃與陰影
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) {
+          header.classList.add('glass-nav', 'shadow-sm');
+        } else {
+          header.classList.remove('glass-nav', 'shadow-sm');
+        }
+
+        // 導覽列作用中區塊偵測 (Active Link Spy)
+        let currentSectionId = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 120;
+          const sectionHeight = section.offsetHeight;
+          if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+            currentSectionId = section.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove('text-brand-blue', 'font-bold');
+          if (link.getAttribute('href') === `#${currentSectionId}`) {
+            link.classList.add('text-brand-blue', 'font-bold');
+          }
+        });
+      }, { passive: true });
+
+      // 區塊進入視野淡入效果
+      const fadeElements = document.querySelectorAll('.fade-up-element');
+      if ('IntersectionObserver' in window) {
+        const fadeObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              fadeObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+        fadeElements.forEach(el => fadeObserver.observe(el));
+      } else {
+        fadeElements.forEach(el => el.classList.add('in-view'));
+      }
+    }
+
+    /**
+     * STREAMING_CHUNK:Handling Mobile Navigation Drawer Interactions...
+     */
+    function initMobileMenu() {
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      const openIcon = document.getElementById('menu-icon-open');
+      const closeIcon = document.getElementById('menu-icon-close');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+      if (!btn || !menu) return;
+
+      function toggleMenu() {
+        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !isExpanded);
+        menu.classList.toggle('hidden');
+        openIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+      }
+
+      btn.addEventListener('click', toggleMenu);
+
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (!menu.classList.contains('hidden')) {
+            toggleMenu();
+          }
+        });
+      });
+    }
+
+    /**
+     * STREAMING_CHUNK:Configuring Accessible Modal System and Focus Management...
+     */
+    let lastActiveElement = null;
+    const modal = document.getElementById('app-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalBadge = document.getElementById('modal-category-badge');
+    const modalContent = document.getElementById('modal-content');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+    const modalDismissBtn = document.getElementById('modal-dismiss-btn');
+
+    function openModal(title, badgeText, htmlContent) {
+      lastActiveElement = document.activeElement;
+      modalTitle.textContent = title;
+      modalBadge.textContent = badgeText;
+      modalContent.innerHTML = htmlContent;
+      
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      
+      // 重新建立圖示
+      if (window.lucide) lucide.createIcons();
+
+      // 管理鍵盤焦點至關閉按鈕
+      setTimeout(() => modalCloseBtn.focus(), 50);
+    }
+
+    function closeModal() {
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+      if (lastActiveElement && typeof lastActiveElement.focus === 'function') {
+        lastActiveElement.focus();
+      }
+    }
+
+    if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+    if (modalDismissBtn) modalDismissBtn.addEventListener('click', closeModal);
+
+    // 點擊背景遮罩關閉
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    // 鍵盤 Escape 鍵支援
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+
+    // 服務 Modal 開啟
+    window.openServiceDetail = function(serviceKey) {
+      const data = BRAND_CONFIG.services[serviceKey];
+      if (data) openModal(data.title, data.badge, data.body);
+    };
+
+    // 案例 Modal 開啟
+    window.openCaseModal = function(caseKey) {
+      const data = BRAND_CONFIG.cases[caseKey];
+      if (data) openModal(data.title, data.badge, data.body);
+    };
+
+    // 文章 Modal 開啟
+    window.openArticleModal = function(articleKey) {
+      const data = BRAND_CONFIG.articles[articleKey];
+      if (data) openModal(data.title, data.badge, data.body);
+    };
+
+    // 隱私條款 Modal
+    window.openPrivacyModal = function() {
+      openModal(
+        "網站聲明與隱私權保護", 
+        "聲明", 
+        `
+        <div class="space-y-3 text-xs text-slate-600 leading-relaxed">
+          <p><strong>1. 個人品牌網站性質：</strong> 本網站為個人專業技術實務、專案規劃思考與顧問諮詢服務之展示平台。網站中所述之公部門相關專案為個人參與執行之實務經驗歷程，絕不代表政府機關官方網站，亦無暗示任何公務機關為私人顧問服務進行官方背書。</p>
+          <p><strong>2. 案例與示範資料：</strong> 網站展示之案例均經過商業敏感資訊與隱私之去識別化處理，部分展示數據為衡量指標模型之示範草案，非作為保證之商業承諾。</p>
+          <p><strong>3. 諮詢聯絡資訊：</strong> 您於本網站表單填寫之稱呼與 Email 僅作為回覆業務諮詢之用，絕不會轉作其他商業兜售或洩漏予第三方機構。</p>
+        </div>
+        `
+      );
+    };
+
+    /**
+     * STREAMING_CHUNK:Implementing Interactive Client Form Validation...
+     */
+    function initContactForm() {
+      const form = document.getElementById('consultation-form');
+      if (!form) return;
+
+      const nameInput = document.getElementById('form-name');
+      const emailInput = document.getElementById('form-email');
+      const topicSelect = document.getElementById('form-topic');
+      const problemInput = document.getElementById('form-problem');
+
+      const nameErr = document.getElementById('name-error');
+      const emailErr = document.getElementById('email-error');
+      const topicErr = document.getElementById('topic-error');
+      const problemErr = document.getElementById('problem-error');
+
+      // 電子郵件格式標準驗證正規表達式
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let isValid = true;
+
+        // 姓名驗證
+        if (!nameInput.value.trim()) {
+          nameErr.classList.remove('hidden');
+          nameInput.classList.add('border-red-400');
+          isValid = false;
+        } else {
+          nameErr.classList.add('hidden');
+          nameInput.classList.remove('border-red-400');
+        }
+
+        // Email 驗證
+        if (!emailRegex.test(emailInput.value.trim())) {
+          emailErr.classList.remove('hidden');
+          emailInput.classList.add('border-red-400');
+          isValid = false;
+        } else {
+          emailErr.classList.add('hidden');
+          emailInput.classList.remove('border-red-400');
+        }
+
+        // 主題驗證
+        if (!topicSelect.value) {
+          topicErr.classList.remove('hidden');
+          topicSelect.classList.add('border-red-400');
+          isValid = false;
+        } else {
+          topicErr.classList.add('hidden');
+          topicSelect.classList.remove('border-red-400');
+        }
+
+        // 問題陳述驗證
+        if (!problemInput.value.trim()) {
+          problemErr.classList.remove('hidden');
+          problemInput.classList.add('border-red-400');
+          isValid = false;
+        } else {
+          problemErr.classList.add('hidden');
+          problemInput.classList.remove('border-red-400');
+        }
+
+        if (!isValid) {
+          showToast('表單檢查未通過', '請確認帶有星號的欄位皆已正確填寫。', 'error');
+          return;
+        }
+
+        // 表單通過前端驗證時的優雅處理（符合不可欺騙已寄出的原則）
+        openModal(
+          "已收到您的諮詢需求 (前端展示)",
+          "需求確認",
+          `
+          <div class="space-y-4">
+            <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-200 text-xs text-emerald-800">
+              <strong>感謝您的填寫，${nameInput.value.trim()}！</strong> 您的輸入資料已通過前端格式驗證。
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              因本網站目前以單一前端架構運行，尚未串接外部郵件 API。為避免漏失您的重要訊息，建議您<strong>立即點擊下方按鈕，直接在 Google 日曆上選定最適合您的會議時間</strong>：
+            </p>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 text-xs space-y-1.5 font-mono">
+              <div><strong>諮詢方向：</strong> ${topicSelect.options[topicSelect.selectedIndex].text}</div>
+              <div><strong>聯絡 Email：</strong> ${emailInput.value.trim()}</div>
+            </div>
+          </div>
+          `
+        );
+
+        // 重設表單
+        form.reset();
+      });
+    }
+
+    /**
+     * STREAMING_CHUNK:Implementing Toast Notification system...
+     */
+    let toastTimeout = null;
+    function showToast(title, message, type = 'info') {
+      const toast = document.getElementById('toast-notification');
+      const toastTitle = document.getElementById('toast-title');
+      const toastMsg = document.getElementById('toast-message');
+      const iconContainer = document.getElementById('toast-icon-container');
+
+      if (!toast) return;
+
+      toastTitle.textContent = title;
+      toastMsg.textContent = message;
+
+      if (type === 'error') {
+        iconContainer.className = 'p-2 rounded-xl bg-red-50 text-red-500';
+      } else {
+        iconContainer.className = 'p-2 rounded-xl bg-blue-50 text-brand-blue';
+      }
+
+      toast.classList.remove('hidden');
+      toast.style.opacity = '1';
+
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(dismissToast, 4000);
+    }
+
+    function dismissToast() {
+      const toast = document.getElementById('toast-notification');
+      if (toast) {
+        toast.style.opacity = '0';
+        setTimeout(() => toast.classList.add('hidden'), 300);
+      }
+    }
+
+    /**
+     * STREAMING_CHUNK:Bootstrapping application on window load...
+     */
+    window.addEventListener('DOMContentLoaded', () => {
+      // 設置當前年份
+      const yearEl = document.getElementById('current-year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      // 初始化打字機與 Canvas 節點動畫
+      initTypewriter();
+      initHeroCanvas();
+
+      // 初始化滾動與導覽
+      initScrollEffects();
+      initMobileMenu();
+
+      // 初始化表單處理
+      initContactForm();
+
+      // 渲染 Lucide 圖示
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    });
+  </script>
+</body>
+</html>
