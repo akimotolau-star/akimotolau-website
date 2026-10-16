@@ -6,11 +6,38 @@
   <title>讓 AI 與數據，成為每個人的超能力 ｜ AI 解決方案與工程整合顧問</title>
   <meta name="description" content="結合 AI、資料分析、智慧化流程與工程整合能力，協助組織釐清複雜問題、優化作業流程，將新技術轉化為切實現場合理的解決方案。">
   <meta name="author" content="AI & Engineering Solutions Consultant">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#2563EB">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:title" content="AI 與數據解決方案｜工程整合顧問">
+  <meta property="og:description" content="以 AI、資料分析、GIS 與工程整合能力，協助組織將複雜問題轉化為可落地的解決方案。">
+  <meta property="og:image" content="enterprise-logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AI 與數據解決方案｜工程整合顧問">
+  <meta name="twitter:description" content="AI、資料分析、GIS 與工程整合服務。">
 
-  <!-- Google Fonts: Inter & Noto Sans TC -->
+  <!-- Google Fonts：全站統一使用繁中字型 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "AI 與數據解決方案顧問",
+    "description": "提供 AI、資料分析、GIS、工程整合、教育訓練與工業管線安全應變服務。",
+    "areaServed": "TW",
+    "serviceType": ["AI 解決方案", "資料分析與 GIS", "工程整合", "教育訓練", "工業管線安全應變"],
+    "sameAs": [
+      "https://line.me/ti/p/hOfVi_Go82",
+      "https://www.facebook.com/MarketingDataScienceTMR/",
+      "https://www.linkedin.com/in/howardzhong/",
+      "https://github.com/HowardNTUST"
+    ]
+  }
+  </script>
 
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -34,7 +61,7 @@
             }
           },
           fontFamily: {
-            sans: ['Inter', 'Noto Sans TC', 'system-ui', 'sans-serif'],
+            sans: ['Noto Sans TC', 'system-ui', 'sans-serif'],
           },
           boxShadow: {
             'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.07)',
@@ -62,24 +89,25 @@
 
     /* 高級毛玻璃效果 */
     .glass-nav {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(203, 213, 225, 0.72);
     }
     
     .glass-card {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(226, 232, 240, 0.9);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(203, 213, 225, 0.78);
+      box-shadow: 0 8px 24px rgba(30, 41, 59, 0.055);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     .glass-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(99, 102, 241, 0.4);
-      box-shadow: 0 16px 36px -10px rgba(37, 99, 235, 0.12), 0 0 0 1px rgba(99, 102, 241, 0.15);
+      border-color: rgba(37, 99, 235, 0.28);
+      box-shadow: 0 16px 32px -14px rgba(37, 99, 235, 0.2), 0 0 0 1px rgba(37, 99, 235, 0.08);
     }
 
     /* 漸層文字效果 */
@@ -109,8 +137,8 @@
     .tech-grid-pattern {
       background-size: 36px 36px;
       background-image: 
-        linear-gradient(to right, rgba(226, 232, 240, 0.4) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(226, 232, 240, 0.4) 1px, transparent 1px);
+        linear-gradient(to right, rgba(203, 213, 225, 0.3) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(203, 213, 225, 0.3) 1px, transparent 1px);
     }
 
     /* 捲動時浮現動畫輔助類別 */
@@ -134,6 +162,51 @@
     .bg-purple-100, .bg-purple-50 { background-color: #DBEAFE !important; }
     .text-emerald-600, .text-emerald-700 { color: #10B981 !important; }
     .bg-emerald-50, .bg-emerald-100 { background-color: #D1FAE5 !important; }
+
+    /* 全站體驗基礎：統一字型、閱讀節奏與互動回饋 */
+    :root {
+      color-scheme: light;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+    }
+    html { scroll-padding-top: 5rem; }
+    body {
+      font-family: 'Noto Sans TC', system-ui, sans-serif;
+      line-height: 1.75;
+      letter-spacing: 0.01em;
+    }
+    .font-mono { font-family: 'Noto Sans TC', system-ui, sans-serif !important; }
+    section[id] { scroll-margin-top: 5rem; }
+    p { text-wrap: pretty; }
+    a, button, input, textarea, select { -webkit-tap-highlight-color: transparent; }
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+      outline: 3px solid rgba(37, 99, 235, 0.35);
+      outline-offset: 3px;
+    }
+    .glass-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px -12px rgba(37, 99, 235, 0.18), 0 0 0 1px rgba(37, 99, 235, 0.1);
+    }
+    .glass-card { overflow: hidden; }
+    .shadow-sm { box-shadow: 0 4px 14px rgba(30, 41, 59, 0.045) !important; }
+    .shadow-md { box-shadow: 0 8px 22px rgba(30, 41, 59, 0.065) !important; }
+    .shadow-lg { box-shadow: 0 12px 28px rgba(30, 41, 59, 0.09) !important; }
+    .shadow-xl, .shadow-2xl { box-shadow: 0 18px 38px rgba(30, 41, 59, 0.1) !important; }
+    .shadow-brand-blue\/20, .shadow-brand-blue\/25 { box-shadow: 0 10px 24px rgba(37, 99, 235, 0.14) !important; }
+    .bg-white\/95 { background-color: rgba(255, 255, 255, 0.96) !important; }
+    .bg-white\/90 { background-color: rgba(255, 255, 255, 0.94) !important; }
+    .bg-white\/85 { background-color: rgba(255, 255, 255, 0.92) !important; }
+    img { max-width: 100%; }
+    @media (max-width: 640px) {
+      .glass-card:hover { transform: none; }
+      h1 { letter-spacing: -0.02em; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up-element, .fade-up-element.in-view {
+        opacity: 1;
+        transform: none;
+      }
+    }
   </style>
 </head>
 <body class="bg-white text-brand-dark font-sans antialiased selection:bg-brand-blue selection:text-white relative overflow-x-hidden">
@@ -405,6 +478,28 @@
             </p>
           </div>
 
+        </div>
+
+        <!-- Partner / Project Identity -->
+        <div class="mb-16 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center rounded-2xl border border-brand-border bg-white p-7 lg:p-10 shadow-sm fade-up-element">
+          <div class="lg:col-span-3 flex justify-center">
+            <div class="w-44 h-44 sm:w-52 sm:h-52 rounded-full bg-slate-50 border border-brand-border flex items-center justify-center p-5 shadow-inner">
+              <img src="enterprise-logo.png" alt="高雄市工業管線安全辦公室企業識別標誌" class="w-full h-full object-contain" loading="lazy">
+            </div>
+          </div>
+          <div class="lg:col-span-9 lg:border-l lg:border-brand-border lg:pl-10">
+            <span class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-brand-blue uppercase">
+              <i data-lucide="building-2" class="w-4 h-4"></i>
+              合作與執行場域
+            </span>
+            <h3 class="text-2xl font-extrabold text-brand-dark mt-3 mb-3">高雄市工業管線安全辦公室</h3>
+            <p class="text-brand-muted leading-relaxed max-w-3xl">以工業管線安全、災害應變與專業訓練為核心，透過情境演練、分組討論與地圖推演，協助參與單位建立跨部門協作與現場應變能力。</p>
+            <div class="flex flex-wrap gap-2 mt-5 text-xs font-semibold">
+              <span class="px-3 py-1.5 rounded-full bg-blue-50 text-brand-blue">工業管線安全</span>
+              <span class="px-3 py-1.5 rounded-full bg-emerald-50 text-brand-mint">教育訓練</span>
+              <span class="px-3 py-1.5 rounded-full bg-slate-100 text-slate-600">應變演練</span>
+            </div>
+          </div>
         </div>
 
         <!-- Bio Narrative & Career Timeline -->
@@ -812,6 +907,58 @@
 
         </div>
 
+      </div>
+    </section>
+
+    <!-- 教育訓練執行現場 -->
+    <section id="training-gallery" class="py-20 lg:py-28 bg-brand-surface relative border-t border-brand-border/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-12 fade-up-element">
+          <span class="text-xs font-bold tracking-widest text-brand-mint uppercase bg-emerald-100/70 px-3 py-1 rounded-full">Training In Action</span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-dark mt-3 tracking-tight">教育訓練執行現場</h2>
+          <p class="text-base text-brand-muted mt-3">從課堂講授、分組討論到地圖推演，記錄實務導向的訓練與協作過程。</p>
+          <div class="w-12 h-1 bg-gradient-to-r from-brand-blue to-brand-mint mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <figure class="group relative overflow-hidden rounded-2xl bg-white border border-brand-border shadow-sm fade-up-element">
+            <img src="training-01.jpg" alt="教育訓練現場：團隊進行行動方案與應變事項評估" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/80 to-transparent px-5 pt-12 pb-5 text-white font-semibold">行動方案與應變事項評估</figcaption>
+          </figure>
+          <figure class="group relative overflow-hidden rounded-2xl bg-white border border-brand-border shadow-sm fade-up-element">
+            <img src="training-02.jpg" alt="教育訓練現場：講師授課與學員分組學習" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/80 to-transparent px-5 pt-12 pb-5 text-white font-semibold">講授與分組學習</figcaption>
+          </figure>
+
+          <figure class="group relative overflow-hidden rounded-2xl bg-white border border-brand-border shadow-sm fade-up-element">
+            <img src="training-03.jpg" alt="教育訓練現場：講師進行災害應變課程說明" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/80 to-transparent px-5 pt-12 pb-5 text-white font-semibold">災害應變課程</figcaption>
+          </figure>
+          <figure class="group relative overflow-hidden rounded-2xl bg-white border border-brand-border shadow-sm fade-up-element">
+            <img src="training-04.jpg" alt="教育訓練現場：學員參與課程與情境討論" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/80 to-transparent px-5 pt-12 pb-5 text-white font-semibold">情境討論與互動</figcaption>
+          </figure>
+          <figure class="group relative overflow-hidden rounded-2xl bg-white border border-brand-border shadow-sm fade-up-element">
+            <img src="training-05.jpg" alt="教育訓練現場：以 GIS 地圖進行應變推演" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/80 to-transparent px-5 pt-12 pb-5 text-white font-semibold">GIS 地圖推演</figcaption>
+          </figure>
+          <figure class="group relative overflow-hidden rounded-2xl bg-white border border-brand-border shadow-sm fade-up-element">
+            <img src="training-06.jpg" alt="教育訓練現場：小組進行桌上演練與討論" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/80 to-transparent px-5 pt-12 pb-5 text-white font-semibold">桌上演練與協作</figcaption>
+          </figure>
+          <figure class="group relative overflow-hidden rounded-2xl bg-white border border-brand-border shadow-sm fade-up-element">
+            <img src="training-07.jpg" alt="教育訓練現場：團隊使用地圖進行應變規劃" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/80 to-transparent px-5 pt-12 pb-5 text-white font-semibold">地圖與現場協作</figcaption>
+          </figure>
+          <figure class="group relative overflow-hidden rounded-2xl bg-white border border-brand-border shadow-sm fade-up-element">
+            <img src="training-08.jpg" alt="教育訓練現場：學員進行事故初期應變評估" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/80 to-transparent px-5 pt-12 pb-5 text-white font-semibold">事故初期應變評估</figcaption>
+          </figure>
+          <figure class="group relative overflow-hidden rounded-2xl bg-white border border-brand-border shadow-sm fade-up-element">
+            <img src="training-09.jpg" alt="教育訓練現場：小組進行應變編組與人力配置討論" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+            <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/80 to-transparent px-5 pt-12 pb-5 text-white font-semibold">應變編組與人力配置</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
@@ -1310,6 +1457,16 @@
         </button>
       </div>
 
+    </div>
+  </div>
+
+  <div id="image-lightbox" class="fixed inset-0 z-[60] hidden items-center justify-center bg-slate-950/85 backdrop-blur-md p-4 sm:p-8" role="dialog" aria-modal="true" aria-labelledby="image-lightbox-caption">
+    <button id="image-lightbox-close" type="button" class="absolute top-4 right-4 sm:top-6 sm:right-6 z-10 rounded-full bg-white/10 p-3 text-white hover:bg-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-white" aria-label="關閉圖片預覽">
+      <i data-lucide="x" class="w-6 h-6"></i>
+    </button>
+    <div class="relative flex max-h-full max-w-6xl flex-col items-center gap-4">
+      <img id="image-lightbox-preview" src="" alt="" class="max-h-[82vh] max-w-full rounded-xl object-contain shadow-2xl">
+      <p id="image-lightbox-caption" class="text-center text-sm font-medium text-white/90"></p>
     </div>
   </div>
 
@@ -2039,6 +2196,64 @@
     }
 
     /**
+     * Training gallery lightbox: open images in the current page.
+     */
+    function initImageLightbox() {
+      const gallery = document.getElementById('training-gallery');
+      const lightbox = document.getElementById('image-lightbox');
+      const preview = document.getElementById('image-lightbox-preview');
+      const caption = document.getElementById('image-lightbox-caption');
+      const closeButton = document.getElementById('image-lightbox-close');
+      if (!gallery || !lightbox || !preview || !caption || !closeButton) return;
+
+      const galleryImages = gallery.querySelectorAll('figure img');
+      let lastFocusedImage = null;
+
+      function closeLightbox() {
+        lightbox.classList.remove('flex');
+        lightbox.classList.add('hidden');
+        document.body.style.overflow = '';
+        preview.src = '';
+        if (lastFocusedImage) lastFocusedImage.focus();
+      }
+
+      function openLightbox(image) {
+        lastFocusedImage = image;
+        preview.src = image.currentSrc || image.src;
+        preview.alt = image.alt;
+        caption.textContent = image.alt;
+        lightbox.classList.remove('hidden');
+        lightbox.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+        closeButton.focus();
+      }
+
+      galleryImages.forEach((image) => {
+        image.setAttribute('tabindex', '0');
+        image.setAttribute('role', 'button');
+        image.setAttribute('aria-label', `${image.alt}，點擊放大預覽`);
+        image.classList.add('cursor-zoom-in');
+        image.addEventListener('click', () => openLightbox(image));
+        image.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openLightbox(image);
+          }
+        });
+      });
+
+      closeButton.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox) closeLightbox();
+      });
+      window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+          closeLightbox();
+        }
+      });
+    }
+
+    /**
      * STREAMING_CHUNK:Bootstrapping application on window load...
      */
     window.addEventListener('DOMContentLoaded', () => {
@@ -2053,6 +2268,7 @@
       // 初始化滾動與導覽
       initScrollEffects();
       initMobileMenu();
+      initImageLightbox();
 
       // 初始化表單處理
       initContactForm();
